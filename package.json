@@ -1,0 +1,186 @@
+{
+  "name": "puppeteer-cucumber-js",
+  "version": "1.6.2",
+  "description": "Browser Automation framework using puppeteer and cucumber-js",
+  "main": "index.js",
+  "bin": {
+    "puppeteer-cucumber-js": "./index.js"
+  },
+  "scripts": {
+    "_test": "node index.js --headless --tags @ci --userAgent \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36\"",
+    "test": "node index.js --headless --featureFiles ./features/google-search.feature",
+    "dashboard": "node dashboard-server.js",
+    "_postinstall": "PUPPETEER_PRODUCT=firefox node ./node_modules/puppeteer/install.js",
+    "start": "node index.js",
+    "customerapp": "node index.js --tags @customerapp",
+    "dev:KasiMainAdmin": "node C:/Users/karabomo/Downloads/puppeteer-cucumber-js-main/puppeteer-cucumber-test/branche.js",
+    "dev:KasiMainAdminTest": "node C:/Users/karabomo/Downloads/puppeteer-cucumber-js-main/puppeteer-cucumber-test/testingDev.js"
+  },
+  "engines": {
+    "node": ">=11.15.0"
+  },
+  "engineStrict": true,
+  "author": "https://orcascan.com",
+  "license": "ISC",
+  "keywords": [
+    "puppeteer",
+    "cucumber",
+    "cucumber-js",
+    "test",
+    "bdd"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orca-scan/puppeteer-cucumber-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/orca-scan/puppeteer-cucumber-js/issues"
+  },
+  "homepage": "https://github.com/orca-scan/puppeteer-cucumber-js#readme",
+  "dependencies": {
+    "chai": "3.5.0",
+    "chalk": "1.1.3",
+    "commander": "2.9.0",
+    "cucumber": "^1.3.3",
+    "cucumber-html-reporter": "4.0.4",
+    "cucumber-junit": "1.6.0",
+    "edge-paths": "^2.1.0",
+    "fs-extra": "^9.1.0",
+    "fs-plus": "2.9.1",
+    "merge": "^1.2.1",
+    "node-resemble-js": "^0.2.0",
+    "pixelmatch": "^5.2.1",
+    "puppeteer": "^7.0.4",
+    "puppeteer-cucumber-js": "^1.6.2",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "require-dir": "0.3.2",
+    "text-files-loader": "^1.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "es6": false,
+      "browser": true
+    },
+    "globals": {
+      "browserPath": true,
+      "userAgent": true,
+      "devTools": true,
+      "headless": true,
+      "helpers": true,
+      "browserTeardownStrategy": true,
+      "page": true,
+      "pageObjects": true,
+      "browser": true,
+      "expect": true,
+      "Promise": true,
+      "browserName": true,
+      "DEFAULT_TIMEOUT": true
+    },
+    "rules": {
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "func-names": 0,
+      "indent": [
+        "error",
+        4,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "max-len": [
+        2,
+        180,
+        4,
+        {
+          "ignoreUrls": true,
+          "ignoreComments": false
+        }
+      ],
+      "new-cap": [
+        "error",
+        {
+          "capIsNewExceptions": [
+            "Router",
+            "ObjectId",
+            "DEBUG"
+          ],
+          "properties": false
+        }
+      ],
+      "no-underscore-dangle": 0,
+      "no-unused-vars": [
+        "warn"
+      ],
+      "no-use-before-define": [
+        "error",
+        {
+          "functions": false
+        }
+      ],
+      "no-var": [
+        "off"
+      ],
+      "one-var": [
+        "off"
+      ],
+      "vars-on-top": [
+        "off"
+      ],
+      "no-param-reassign": [
+        "off"
+      ],
+      "no-lone-blocks": [
+        "off"
+      ],
+      "padded-blocks": 0,
+      "prefer-template": [
+        "off"
+      ],
+      "prefer-arrow-callback": [
+        "off"
+      ],
+      "default-case": [
+        "off"
+      ],
+      "wrap-iife": [
+        2,
+        "inside"
+      ],
+      "no-plusplus": [
+        "off"
+      ],
+      "require-jsdoc": [
+        "warn",
+        {
+          "require": {
+            "FunctionDeclaration": true,
+            "MethodDefinition": true,
+            "ClassDeclaration": true
+          }
+        }
+      ],
+      "object-shorthand": [
+        "error",
+        "never"
+      ],
+      "space-before-function-paren": "off",
+      "strict": "off",
+      "valid-jsdoc": [
+        "error"
+      ]
+    }
+  }
+}

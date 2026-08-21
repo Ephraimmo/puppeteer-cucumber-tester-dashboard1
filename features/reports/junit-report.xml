@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="login-and-register-page;user-attempts-to-register---form-is-available" tests="12" failures="0" skipped="0">
+        <properties>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="23.7810334">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0586224">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0502554">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0327902">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0383565">
+        </testcase>
+        <testcase name="Then I tab to the &quot;REGISTER&quot; tab" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0330481">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0406114">
+        </testcase>
+        <testcase name="Then I should see the &quot;Full Name *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0216708">
+        </testcase>
+        <testcase name="And I should see the &quot;Email *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0205658">
+        </testcase>
+        <testcase name="And I should see the &quot;Phone (optional)&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0421206">
+        </testcase>
+        <testcase name="And I should see the &quot;Password *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0257185">
+        </testcase>
+        <testcase name="And I should see the &quot;CREATE ACCOUNT&quot; message" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0414215">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-valid-credentials" tests="18" failures="0" skipped="0">
+        <properties>
+            <property name="@feat" value="true">
+            </property>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="4.4663064">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.0929984">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0327811">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.0332694">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0356443">
+        </testcase>
+        <testcase name="Then I tab to the &quot;REGISTER&quot; tab" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.0278977">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0369252">
+        </testcase>
+        <testcase name="Then I enter &quot;nkanyezisecurity&quot; into the &quot;Full Name *&quot; field" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.8398662">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0544976">
+        </testcase>
+        <testcase name="And I enter &quot;nkanyezisecurity@gmail.com&quot; into the &quot;Email *&quot; field" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.1394056">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.1228831">
+        </testcase>
+        <testcase name="And I enter &quot;+27824815280&quot; into the &quot;Phone (optional)&quot; field" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.7385252">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.042767">
+        </testcase>
+        <testcase name="And I enter &quot;Ephraim@217377781&quot; into the &quot;Password *&quot; field" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.8870281">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0414652">
+        </testcase>
+        <testcase name="And I click on the &quot;CREATE ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0912857">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0333843">
+        </testcase>
+        <testcase name="Then I should see the &quot;SIGN OUT&quot; message" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.0330023">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login---form-is-available" tests="8" failures="0" skipped="0">
+        <properties>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login---form-is-available" time="4.1933954">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login---form-is-available" time="0.0543655">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login---form-is-available" time="1.0956651">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login---form-is-available" time="0.0529138">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login---form-is-available" time="1.0585591">
+        </testcase>
+        <testcase name="Then I should see the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login---form-is-available" time="0.0130375">
+        </testcase>
+        <testcase name="And I should see the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login---form-is-available" time="0.0199804">
+        </testcase>
+        <testcase name="And I should see the &quot;SIGN IN&quot; message" classname="login-and-register-page;user-attempts-to-login---form-is-available" time="0.0376727">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-valid-credentials" tests="12" failures="0" skipped="0">
+        <properties>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="3.7142743">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.0874386">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.1585734">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.2934038">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0413606">
+        </testcase>
+        <testcase name="Then I enter &quot;demo@hearth.app&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.6328734">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0510412">
+        </testcase>
+        <testcase name="And I enter &quot;hearth123&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.7586456">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0331127">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.1443759">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="1.0388972">
+        </testcase>
+        <testcase name="Then I should see the &quot;SIGN OUT&quot; message" classname="login-and-register-page;user-attempts-to-login-with-valid-credentials" time="0.0363801">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" tests="10" failures="0" skipped="0">
+        <properties>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="@valid" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="3.8135534">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="0.0270397">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="1.0979944">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="0.0259877">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="1.0421555">
+        </testcase>
+        <testcase name="And I enter &quot;nkanyezisecurit@gmail.com&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="1.1592496">
+        </testcase>
+        <testcase name="And I enter &quot;Ephraim@21737778&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="0.7928295">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="0.0480104">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="1.0418356">
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid email or password&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password" time="0.0287674">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" tests="10" failures="0" skipped="0">
+        <properties>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="@valid" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="3.6110578">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.0457769">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.0441095">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.0304108">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.0597796">
+        </testcase>
+        <testcase name="And I enter &quot;nkanyezisecurit@gmail.com&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="2.8754717">
+        </testcase>
+        <testcase name="And I enter &quot;Ephraim@217377781&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.8153077">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.1449232">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.0343998">
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid email or password&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.0370659">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password" tests="10" failures="1" skipped="7">
+        <properties>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="@valid" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password" time="3.7432475">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password" time="0.0467449">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password" time="1.0147401">
+            <failure message="Error: Protocol error (Runtime.callFunctionOn): Session closed. Most likely the page has been closed.">Error: Protocol error (Runtime.callFunctionOn): Session closed. Most likely the page has been closed.
+    at CDPSession.send (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\Connection.js:195:35)
+    at next (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer-extra-plugin-stealth\evasions\sourceurl\index.js:34:41)
+    at CDPSession.send (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer-extra-plugin-stealth\evasions\sourceurl\index.js:75:16)
+    at ExecutionContext._evaluateInternal (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\ExecutionContext.js:201:50)
+    at ExecutionContext.evaluateHandle (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\ExecutionContext.js:152:21)
+    at WaitTask.rerun (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\DOMWorld.js:532:37)</failure>
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I enter &quot;Empty&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I enter &quot;Empty&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid email or password&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email" tests="10" failures="1" skipped="9">
+        <properties>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="@valid" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email" time="2.1293498">
+            <failure message="Error: Navigation failed because browser has disconnected!">Error: Navigation failed because browser has disconnected!
+    at C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\LifecycleWatcher.js:51:147
+    at C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\vendor\mitt\src\index.js:51:62
+    at Array.map (&lt;anonymous&gt;)
+    at Object.emit (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\vendor\mitt\src\index.js:51:43)
+    at CDPSession.emit (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\EventEmitter.js:72:22)
+    at CDPSession._onClosed (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\Connection.js:247:14)
+    at Connection._onMessage (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\Connection.js:94:25)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:644:9)
+    at process.processTimers (node:internal/timers:618:7)</failure>
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I enter &quot;Empty&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I enter &quot;Ephraim@21737778&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid email or password&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password" tests="10" failures="1" skipped="9">
+        <properties>
+            <property name="@customerapp" value="true">
+            </property>
+            <property name="@valid" value="true">
+            </property>
+            <property name="URI" value="C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\features\customerApp\login.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password" time="1.2118161">
+            <failure message="Error: Navigation failed because browser has disconnected!">Error: Navigation failed because browser has disconnected!
+    at C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\LifecycleWatcher.js:51:147
+    at C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\vendor\mitt\src\index.js:51:62
+    at Array.map (&lt;anonymous&gt;)
+    at Object.emit (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\vendor\mitt\src\index.js:51:43)
+    at CDPSession.emit (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\EventEmitter.js:72:22)
+    at CDPSession._onClosed (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\Connection.js:247:14)
+    at Connection._onMessage (C:\Users\karabomo\Downloads\puppeteer-cucumber-test-master\puppeteer-cucumber-test-master\node_modules\puppeteer\lib\cjs\puppeteer\common\Connection.js:94:25)
+    at runNextTicks (node:internal/process/task_queues:65:5)
+    at listOnTimeout (node:internal/timers:644:9)
+    at process.processTimers (node:internal/timers:618:7)</failure>
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I enter &quot;nkanyezisecurity@gmail.com&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I enter &quot;Empty&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid email or password&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+</testsuites>

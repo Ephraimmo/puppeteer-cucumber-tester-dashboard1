@@ -1,0 +1,1560 @@
+[
+  {
+    "elements": [
+      {
+        "id": "login-and-register-page;user-attempts-to-register---form-is-available",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "User attempts to Register - form is available",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "passed",
+              "duration": 23781033400
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "passed",
+              "duration": 58622400
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1050255400
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 32790200
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1038356500
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I tab to the \"REGISTER\" tab",
+            "result": {
+              "status": "passed",
+              "duration": 33048100
+            },
+            "line": 13,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:36"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1040611400
+            },
+            "line": 14,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"Full Name *\" field",
+            "result": {
+              "status": "passed",
+              "duration": 21670800
+            },
+            "line": 16,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:120"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I should see the \"Email *\" field",
+            "result": {
+              "status": "passed",
+              "duration": 20565800
+            },
+            "line": 17,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:120"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I should see the \"Phone (optional)\" field",
+            "result": {
+              "status": "passed",
+              "duration": 42120600
+            },
+            "line": 18,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:120"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I should see the \"Password *\" field",
+            "result": {
+              "status": "passed",
+              "duration": 25718500
+            },
+            "line": 19,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:120"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I should see the \"CREATE ACCOUNT\" message",
+            "result": {
+              "status": "passed",
+              "duration": 41421500
+            },
+            "line": 20,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 2836787400
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@customerapp",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "login-and-register-page;user-attempts-to-login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 24,
+        "name": "User attempts to login with valid credentials",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "passed",
+              "duration": 4466306400
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "passed",
+              "duration": 92998400
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1032781100
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 33269400
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1035644300
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I tab to the \"REGISTER\" tab",
+            "result": {
+              "status": "passed",
+              "duration": 27897700
+            },
+            "line": 26,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:36"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1036925200
+            },
+            "line": 27,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I enter \"nkanyezisecurity\" into the \"Full Name *\" field",
+            "result": {
+              "status": "passed",
+              "duration": 839866200
+            },
+            "line": 29,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1054497600
+            },
+            "line": 30,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"nkanyezisecurity@gmail.com\" into the \"Email *\" field",
+            "result": {
+              "status": "passed",
+              "duration": 1139405600
+            },
+            "line": 31,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1122883100
+            },
+            "line": 32,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"+27824815280\" into the \"Phone (optional)\" field",
+            "result": {
+              "status": "passed",
+              "duration": 738525200
+            },
+            "line": 33,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1042767000
+            },
+            "line": 34,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"Ephraim@217377781\" into the \"Password *\" field",
+            "result": {
+              "status": "passed",
+              "duration": 887028100
+            },
+            "line": 35,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1041465200
+            },
+            "line": 36,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"CREATE ACCOUNT\" button",
+            "result": {
+              "status": "passed",
+              "duration": 1091285700
+            },
+            "line": 37,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1033384300
+            },
+            "line": 38,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"SIGN OUT\" message",
+            "result": {
+              "status": "passed",
+              "duration": 33002300
+            },
+            "line": 41,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 3378898100
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@feat",
+            "line": 22
+          },
+          {
+            "name": "@customerapp",
+            "line": 23
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "login-and-register-page;user-attempts-to-login---form-is-available",
+        "keyword": "Scenario",
+        "line": 45,
+        "name": "User attempts to login - form is available",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "passed",
+              "duration": 4193395400
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "passed",
+              "duration": 54365500
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1095665100
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 52913800
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1058559100
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"Email\" field",
+            "result": {
+              "status": "passed",
+              "duration": 13037500
+            },
+            "line": 47,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:120"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I should see the \"Password\" field",
+            "result": {
+              "status": "passed",
+              "duration": 19980400
+            },
+            "line": 48,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:120"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I should see the \"SIGN IN\" message",
+            "result": {
+              "status": "passed",
+              "duration": 37672700
+            },
+            "line": 49,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 2957668300
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@customerapp",
+            "line": 44
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "login-and-register-page;user-attempts-to-login-with-valid-credentials",
+        "keyword": "Scenario",
+        "line": 52,
+        "name": "User attempts to login with valid credentials",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "passed",
+              "duration": 3714274300
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "passed",
+              "duration": 87438600
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1158573400
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 293403800
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1041360600
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I enter \"demo@hearth.app\" into the \"Email\" field",
+            "result": {
+              "status": "passed",
+              "duration": 1632873400
+            },
+            "line": 54,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1051041200
+            },
+            "line": 55,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"hearth123\" into the \"Password\" field",
+            "result": {
+              "status": "passed",
+              "duration": 758645600
+            },
+            "line": 56,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1033112700
+            },
+            "line": 57,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 144375900
+            },
+            "line": 58,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1038897200
+            },
+            "line": 59,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"SIGN OUT\" message",
+            "result": {
+              "status": "passed",
+              "duration": 36380100
+            },
+            "line": 62,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 805280200
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@customerapp",
+            "line": 51
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email-and-password",
+        "keyword": "Scenario",
+        "line": 78,
+        "name": "User attempts to login with invalid credentials - Invalid Email and Password",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "passed",
+              "duration": 3813553400
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "passed",
+              "duration": 27039700
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1097994400
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 25987700
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1042155500
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"nkanyezisecurit@gmail.com\" into the \"Email\" field",
+            "result": {
+              "status": "passed",
+              "duration": 1159249600
+            },
+            "line": 68,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"Ephraim@21737778\" into the \"Password\" field",
+            "result": {
+              "status": "passed",
+              "duration": 792829500
+            },
+            "line": 69,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 48010400
+            },
+            "line": 70,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1041835600
+            },
+            "line": 71,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"Invalid email or password\" message",
+            "result": {
+              "status": "passed",
+              "duration": 28767400
+            },
+            "line": 74,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 1614286900
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@customerapp",
+            "line": 66
+          },
+          {
+            "name": "@valid",
+            "line": 66
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email",
+        "keyword": "Scenario",
+        "line": 79,
+        "name": "User attempts to login with invalid credentials - Invalid Email",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "passed",
+              "duration": 3611057800
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "passed",
+              "duration": 45776900
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1044109500
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 30410800
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1059779600
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"nkanyezisecurit@gmail.com\" into the \"Email\" field",
+            "result": {
+              "status": "passed",
+              "duration": 2875471700
+            },
+            "line": 68,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"Ephraim@217377781\" into the \"Password\" field",
+            "result": {
+              "status": "passed",
+              "duration": 815307700
+            },
+            "line": 69,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 144923200
+            },
+            "line": 70,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1034399800
+            },
+            "line": 71,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"Invalid email or password\" message",
+            "result": {
+              "status": "passed",
+              "duration": 37065900
+            },
+            "line": 74,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 996250500
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@customerapp",
+            "line": 66
+          },
+          {
+            "name": "@valid",
+            "line": 66
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email-and-password",
+        "keyword": "Scenario",
+        "line": 80,
+        "name": "User attempts to login with invalid credentials - Empty Email and Password",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "passed",
+              "duration": 3743247500
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "passed",
+              "duration": 46744900
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "failed",
+              "duration": 1014740100,
+              "error_message": "Error: Protocol error (Runtime.callFunctionOn): Session closed. Most likely the page has been closed.\n    at CDPSession.send (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Connection.js:195:35)\n    at next (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer-extra-plugin-stealth\\evasions\\sourceurl\\index.js:34:41)\n    at CDPSession.send (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer-extra-plugin-stealth\\evasions\\sourceurl\\index.js:75:16)\n    at ExecutionContext._evaluateInternal (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\ExecutionContext.js:201:50)\n    at ExecutionContext.evaluateHandle (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\ExecutionContext.js:152:21)\n    at WaitTask.rerun (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\DOMWorld.js:532:37)"
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"Empty\" into the \"Email\" field",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 68,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"Empty\" into the \"Password\" field",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 69,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 70,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 71,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"Invalid email or password\" message",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 74,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "failed",
+              "duration": 4901100,
+              "error_message": "Error: Protocol error (Target.activateTarget): Session closed. Most likely the page has been closed.\n    at CDPSession.send (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Connection.js:195:35)\n    at next (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer-extra-plugin-stealth\\evasions\\sourceurl\\index.js:34:41)\n    at CDPSession.send (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer-extra-plugin-stealth\\evasions\\sourceurl\\index.js:67:18)\n    at Page._screenshotTask (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Page.js:1089:28)\n    at C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Page.js:1086:62\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)"
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@customerapp",
+            "line": 66
+          },
+          {
+            "name": "@valid",
+            "line": 66
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-email",
+        "keyword": "Scenario",
+        "line": 81,
+        "name": "User attempts to login with invalid credentials - Empty Email",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "failed",
+              "duration": 2129349800,
+              "error_message": "Error: Navigation failed because browser has disconnected!\n    at C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\LifecycleWatcher.js:51:147\n    at C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\vendor\\mitt\\src\\index.js:51:62\n    at Array.map (<anonymous>)\n    at Object.emit (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\vendor\\mitt\\src\\index.js:51:43)\n    at CDPSession.emit (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\EventEmitter.js:72:22)\n    at CDPSession._onClosed (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Connection.js:247:14)\n    at Connection._onMessage (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Connection.js:94:25)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at listOnTimeout (node:internal/timers:644:9)\n    at process.processTimers (node:internal/timers:618:7)"
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"Empty\" into the \"Email\" field",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 68,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"Ephraim@21737778\" into the \"Password\" field",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 69,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 70,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 71,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"Invalid email or password\" message",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 74,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "failed",
+              "duration": 423500,
+              "error_message": "Error: Protocol error (Target.activateTarget): Session closed. Most likely the page has been closed.\n    at CDPSession.send (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Connection.js:195:35)\n    at next (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer-extra-plugin-stealth\\evasions\\sourceurl\\index.js:34:41)\n    at CDPSession.send (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer-extra-plugin-stealth\\evasions\\sourceurl\\index.js:67:18)\n    at Page._screenshotTask (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Page.js:1089:28)\n    at C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Page.js:1086:62\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at runNextTicks (node:internal/process/task_queues:69:3)\n    at listOnTimeout (node:internal/timers:644:9)\n    at process.processTimers (node:internal/timers:618:7)"
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@customerapp",
+            "line": 66
+          },
+          {
+            "name": "@valid",
+            "line": 66
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "id": "login-and-register-page;user-attempts-to-login-with-invalid-credentials---empty-password",
+        "keyword": "Scenario",
+        "line": 82,
+        "name": "User attempts to login with invalid credentials - Empty Password",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "result": {
+              "status": "failed",
+              "duration": 1211816100,
+              "error_message": "Error: Navigation failed because browser has disconnected!\n    at C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\LifecycleWatcher.js:51:147\n    at C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\vendor\\mitt\\src\\index.js:51:62\n    at Array.map (<anonymous>)\n    at Object.emit (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\vendor\\mitt\\src\\index.js:51:43)\n    at CDPSession.emit (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\EventEmitter.js:72:22)\n    at CDPSession._onClosed (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Connection.js:247:14)\n    at Connection._onMessage (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Connection.js:94:25)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at listOnTimeout (node:internal/timers:644:9)\n    at process.processTimers (node:internal/timers:618:7)"
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\google-search-steps.js:3"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"ACCOUNT\" button",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"nkanyezisecurity@gmail.com\" into the \"Email\" field",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 68,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I enter \"Empty\" into the \"Password\" field",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 69,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:82"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 70,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 71,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:34"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see the \"Invalid email or password\" message",
+            "result": {
+              "status": "skipped"
+            },
+            "line": 74,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\step-definitions\\login-steps.js:114"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "failed",
+              "duration": 399600,
+              "error_message": "Error: Protocol error (Target.activateTarget): Session closed. Most likely the page has been closed.\n    at CDPSession.send (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Connection.js:195:35)\n    at next (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer-extra-plugin-stealth\\evasions\\sourceurl\\index.js:34:41)\n    at CDPSession.send (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer-extra-plugin-stealth\\evasions\\sourceurl\\index.js:67:18)\n    at Page._screenshotTask (C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Page.js:1089:28)\n    at C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\node_modules\\puppeteer\\lib\\cjs\\puppeteer\\common\\Page.js:1086:62\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at runNextTicks (node:internal/process/task_queues:69:3)\n    at listOnTimeout (node:internal/timers:644:9)\n    at process.processTimers (node:internal/timers:618:7)"
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\runtime\\world.js:227"
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@customerapp",
+            "line": 66
+          },
+          {
+            "name": "@valid",
+            "line": 66
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-and-register-page",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "Login And Register Page",
+    "tags": [],
+    "uri": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature"
+  }
+]

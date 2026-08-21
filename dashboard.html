@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scenario Room</title>
+    <link rel="stylesheet" href="/dashboard.css">
+</head>
+<body>
+    <main class="shell">
+        <aside class="sidebar">
+            <div class="brand"><span class="brand-mark">/</span><span>scenario room</span></div>
+            <div class="sidebar-label">Workspace</div>
+            <nav>
+                <button class="nav-item active" data-view="overview"><span class="nav-icon">01</span> Run overview</button>
+                <button class="nav-item" data-view="stream"><span class="nav-icon">02</span> Scenario stream</button>
+                <button class="nav-item" data-view="reports"><span class="nav-icon">03</span> Reports</button>
+                <button class="nav-item" data-view="studio"><span class="nav-icon">04</span> Feature studio</button>
+            </nav>
+            <div class="sidebar-bottom">
+                <div class="agent-card"><span class="agent-dot"></span><div><strong id="connection-status">Firebase realtime</strong><small>Listening for runner updates</small></div></div>
+                <div class="version">Puppeteer / Cucumber</div>
+            </div>
+        </aside>
+
+        <section class="content">
+            <header class="topbar">
+                <div><p class="eyebrow">TEST OPERATIONS <span id="last-updated">Waiting for a run</span></p><h1 id="page-title">Run overview</h1></div>
+                <div class="top-actions"><select id="feature-select" title="Feature run scope"><option value="">All feature files</option></select><select id="browser-mode" title="Browser mode"><option value="headless">Headless</option><option value="headful">Browser window</option></select><span class="live-indicator" id="status-badge"><i></i> IDLE</span><button class="run-button" id="run-feat" data-run="feat">Run @feat</button><button class="run-button batch" id="run-batch" data-run="batch">Run batch</button><button class="icon-button" id="refresh" title="Refresh now">&#8635;</button></div>
+            </header>
+
+            <section class="view-panel" id="overview-view">
+            <section class="hero-grid">
+                <div class="run-card panel">
+                    <div class="run-card-header"><div><p class="eyebrow warm">CURRENT RUN</p><h2 id="run-title">Waiting for scenarios</h2></div><span class="run-id" id="run-id">--</span></div>
+                    <div class="run-main"><div class="ring" id="progress-ring"><div><strong id="progress-value">0%</strong><small>complete</small></div></div><div class="current-copy"><span class="pulse-label"><i></i> <span id="current-status">Stand by</span></span><h3 id="current-scenario">No scenario is running</h3><p id="current-detail">Start a tagged or feature-specific run and this room will follow each scenario as it moves.</p></div></div>
+                    <div class="run-footer"><span>Started <strong id="started-at">--</strong></span><span>Elapsed <strong id="elapsed">--</strong></span><span>Browser <strong>Chrome</strong></span></div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat panel"><span class="stat-label">PASSED</span><strong id="passed">0</strong><span class="stat-foot good">Clean exits</span></div>
+                    <div class="stat panel"><span class="stat-label">FAILED</span><strong id="failed">0</strong><span class="stat-foot bad">Needs attention</span></div>
+                    <div class="stat panel"><span class="stat-label">IN MOTION</span><strong id="running">0</strong><span class="stat-foot live">Live now</span></div>
+                    <div class="stat panel"><span class="stat-label">SCENARIOS</span><strong id="total">0</strong><span class="stat-foot">Observed this run</span></div>
+                </div>
+            </section>
+
+            <section class="lower-grid">
+                <div class="panel stream-panel"><div class="section-heading"><div><p class="eyebrow">EXECUTION LOG</p><h2>Scenario stream</h2></div><div class="filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="running">Live</button><button class="filter" data-filter="failed">Failed</button></div></div><div class="stream" id="stream"><div class="empty-state">Scenario activity will appear here.</div></div></div>
+                <div class="panel suite-panel"><div class="section-heading"><div><p class="eyebrow">SIGNAL</p><h2>Run health</h2></div><span class="health-score" id="health-score">--</span></div><div class="health-copy" id="health-copy">No completed scenarios yet.</div><div class="bar-track"><span id="health-bar"></span></div><div class="legend"><span><i class="dot passed-dot"></i>Passed</span><span><i class="dot failed-dot"></i>Failed</span><span><i class="dot queued-dot"></i>Queued</span></div><div class="tip"><span class="tip-mark">+</span><div><strong>Keep this tab open</strong><p>The room refreshes automatically while Cucumber is running.</p></div></div></div>
+            </section>
+            <section class="run-queue panel" id="run-queue"><div class="section-heading"><div><p class="eyebrow">FEATURE QUEUE</p><h2>Run status</h2></div><span class="queue-message" id="run-message">Ready to run</span></div><div class="feature-status-list" id="feature-status-list"><span class="empty-state">Detecting feature files...</span></div></section>
+            </section>
+
+            <section class="view-panel hidden" id="reports-view">
+                <div class="report-intro"><div><p class="eyebrow warm-text">Cucumber report</p><h2>Quality report</h2><p class="report-subtitle">A readable record of every feature, scenario, and step from the latest run.</p></div><div class="report-actions"><button class="run-button" data-run="feat">Run @feat</button><button class="run-button batch" data-run="batch">Run batch</button><div class="report-stamp"><span id="report-run-status">LATEST RUN</span><strong id="report-run-time">--</strong></div></div></div>
+                <div class="report-summary"><div class="report-total panel"><span class="stat-label">TOTAL SCENARIOS</span><strong id="report-total">0</strong><span>Across all feature files</span></div><div class="report-total panel"><span class="stat-label">PASS RATE</span><strong id="report-pass-rate">0%</strong><span id="report-pass-copy">No completed scenarios</span></div><div class="report-total panel"><span class="stat-label">FEATURE FILES</span><strong id="report-features">0</strong><span>Observed in this report</span></div><div class="report-total panel"><span class="stat-label">TOTAL DURATION</span><strong id="report-duration">--</strong><span>Step execution time</span></div></div>
+                <div class="report-grid"><div class="panel distribution-panel"><div class="section-heading"><div><p class="eyebrow">OUTCOME DISTRIBUTION</p><h2>Run results</h2></div><span class="report-caption" id="report-caption">No report loaded</span></div><div class="distribution"><div class="distribution-bar"><span class="distribution-pass" id="distribution-pass"></span><span class="distribution-fail" id="distribution-fail"></span></div><div class="distribution-legend"><span><i class="dot passed-dot"></i><strong id="report-passed-count">0</strong> passed</span><span><i class="dot failed-dot"></i><strong id="report-failed-count">0</strong> failed</span></div></div></div><div class="panel report-note"><span class="tip-mark">+</span><div><strong>Readable by design</strong><p>Open a feature to inspect each scenario and the exact step that reported a failure.</p></div></div></div>
+                <div class="feature-report" id="feature-report"><div class="empty-state">No report data is available yet.</div></div>
+            </section>
+
+            <section class="view-panel hidden" id="studio-view">
+                <div class="studio-header"><div><p class="eyebrow warm-text">FEATURE WORKSPACE</p><h2>Feature studio</h2><p class="report-subtitle">Edit the Gherkin source behind your run without leaving the dashboard.</p></div><div class="studio-actions"><button class="run-button" id="new-feature">New feature file</button><button class="save-button" id="save-feature">Save changes</button></div></div>
+                <div class="studio-layout"><aside class="studio-files panel"><div class="section-heading"><div><p class="eyebrow">SOURCE FILES</p><h2>Feature files</h2></div></div><select id="studio-file-select" size="10"></select></aside><div class="studio-form"><div class="panel form-panel"><div class="field-row"><label>File path<input id="studio-uri" placeholder="features/example.feature"></label><label>Feature name<input id="studio-name" placeholder="Feature name"></label></div><label>Feature tags<input id="studio-tags" placeholder="@team @smoke"></label><label>Description<textarea id="studio-description" rows="3" placeholder="What this feature verifies"></textarea></label></div><div id="studio-scenarios"></div><button class="add-scenario" id="add-scenario">+ Add scenario</button><p class="studio-message" id="studio-message"></p></div></div>
+            </section>
+        </section>
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+    <script src="/dashboard.js"></script>
+</body>
+</html>

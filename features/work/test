@@ -1,0 +1,287 @@
+#karabomo
+#2024/07/15
+@Login_KaapAgri
+Feature: Unicorn - Suppliers - SP Maintenance - Cash Supplier Maintenance  - Options - Sub Accounts
+    Process to add sub account
+
+    Background: Login and navigate
+
+        # Navigate menu
+        Given I am logged in
+        When I hover on menu item "Unicorn"
+        And I click on menu item drop down "Suppliers"
+        And I click on menu item drop down "SP Maintenance"
+        And I click on menu item "Cash Supplier Maintenance"
+        And I wait for the page to load
+
+    
+    # RS-56676 - DD_CashSupplierSubAccount_Success 1 of 3
+    Scenario: Add a Supplier Sub Account - Success
+
+        And I enter value "3" in field "Supplier Number"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "3" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Sub Account"
+        And I wait for the page to load
+
+        #Add sub account
+        And I click on the "Add" button
+        And I wait for the page to load
+
+        #Fill in fields
+        And I select value "03 - AGRIPLAS (PTY) LTD" for field "Company"
+        And I select value "1 - Sole Proprietary" for field "Vendor Type"
+        And I select value "E - External" for field "Account Type"
+        And I select value "A - Afrikaans" for field "Language"
+        And I enter value "02 - Annalize Smith" in field "Contact Person"
+
+        And I enter value "21" in field "Bank"
+        And I click on the search glass for the field "Bank"
+        And I switch to the new window
+        And I click on element with text "21" in a table
+        And I switch to the previous window
+
+        And I select value "1 - Cheque" for field "Bank Account Type"
+        And I enter value "1234567890" in field "Bank Account Number" 
+        
+        #Submit
+        And I click on the "Submit" button
+        And I wait for the page to load
+
+        #Navigate to the added record
+        And I hover on menu item "Unicorn"
+        And I click on menu item "Supplier Maintenance"
+        And I wait for the page to load
+        And I enter value "NATIONAL FOOD DISTRIBUTORS LTD" in field "Registered Company name"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "6" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Supplier Sub Accounts"
+        And I wait for the page to load
+        And I click on value with link text "01 - KAAP AGRI BEDRYF LIMITED"
+        And I wait for the page to load
+
+        #Validation
+        Then I confirm value "01 - KAAP AGRI BEDRYF LIMITED" for field "Company"
+        And I confirm value "6" is present in appArea
+        And I confirm value "1 - Sole Proprietary" is present in appArea
+        And I confirm value "E - External" for field "Account Type"
+        And I confirm value "01 - GERHARD VICTOR" for field "Contact Person"
+        And I confirm value "A - Active" is present in appArea
+        And I confirm value "A - Afrikaans" is present in appArea
+        And I confirm value "083 123 4567" for field "Communication Information"
+        And I confirm value "Sally" for field "Person Name"
+        And I confirm value "123 Loop Str" for field "Address Line 1"
+        And I confirm value "Bloemfontein" for field "Town"
+        And I confirm value "ZAF - South Africa" is present in appArea
+        And I confirm value "9301" for field "Postal Code"
+        And I confirm value "RegAddSubAccS" for field "Client Name"
+        And I confirm value "2 - Savings" is present in appArea
+        And I confirm value "12354584" is present in appArea
+        And I confirm value "BANK OF ATHENS" is present in appArea
+        And I confirm value "410109" for field "ACB Branch Code"
+
+
+        #Search for supplier
+        And I enter value "3" in field "Supplier Number"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "3" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Sub Accounts"
+        And I wait for the page to load
+
+        #Add address
+        And I click on the "Add" button
+        And I wait for the page to load
+
+        #Fill in fields
+        And I enter value "Reg Add Success" in field "Client Name"
+        And I select value "1 - Cheque" for field "Account Type"
+        And I wait for ajax to complete
+        And I enter value "001" in field "Sub Account Number"
+        And I enter value "45" in field "Bank"
+        And I click on the search glass for the field "Bank"
+        And I switch to the new window
+        And I click on element with text "45" in a table
+        And I switch to the previous window
+        And I enter value "410305" in field "ACB Branch Code"
+
+        #Submit
+        And I click on the "Submit" button
+        And I wait for the page to load
+
+        #Navigate to added record
+        And I hover on menu item "Unicorn"
+        And I click on menu item "Cash Supplier Maintenance"
+        And I wait for the page to load
+        And I enter value "3" in field "Supplier Number"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "3" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Sub Accounts"
+        And I wait for the page to load
+        And I enter value "Reg Add Success" in field "Client Name"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I "click on link text in" cell in column "Sub Account Number" for row with "Reg Add Success" in column "Client Name" in a table
+        And I wait for the page to load
+
+        #Validation
+        Then I confirm value "Reg Add Success" for field "Client Name"
+        And I confirm value "Cheque" is present in container "Bank Details for Supplier GROENENDAL KWEKERY"
+        And I confirm value "000000000000001" for field "Sub Account Number"
+        And I confirm value "GROBANK LTD" is present in container "Bank Details for Supplier GROENENDAL KWEKERY"
+        And I confirm value "410305" for field "ACB Branch Code"
+
+    
+    # RS-56675 - DD_CashSupplierSubAccount_Error 1 - 5 of 5
+    Scenario: Add a Supplier Sub Account - Error - <checkPointType>
+       
+        And I enter value "3" in field "Supplier Number"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "3" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Sub Account"
+        And I wait for the page to load
+
+        #Add sub account
+        And I click on the "Add" button
+        And I wait for the page to load
+
+        #Fill in fields
+        And I select value "<company>" for field "Company"
+        #And I enter value "<supplierNumberType>" in field "Supplier Number / Supplier Type"
+        And I select value "<vendorType>" for field "Vendor Type"
+        And I select value "<accountType>" for field "Bank Account Type"
+        And I select value "<contactPerson>" for field "Contact Person"
+        And I select value "<status>" for field "Status"
+        And I select value "<supplierGroupTier>" for field "Supplier Group/Tier"
+        And I select value "<language>" for field "Language"
+        And I enter value "<commsnInfo>" in field "Communication Information"
+        And I enter value "<personName>" in field "Person Name"
+        And I enter value "<addressLine1>" in field "Address Line 1"
+        And I enter value "<town>" in field "Town"
+        And I select value "<country>" for field "Country"
+        And I enter value "<postalCode>" in field "Postal Code"
+        And I enter value "<clientName>" in field "Client Name"
+        And I select value "<bankAccountType>" for field "Account Type" 2
+        And I enter value "<bankAccountNumber>" in field "Account Number" 2
+        And I enter value "<bank>" in field "Bank"
+        And I click on the search glass for the field "Bank"
+        And I switch to the new window
+        And I click on element with text "<bank>" in a table
+        And I switch to the previous window
+
+        #Submit
+        And I click on the "Submit" button
+        And I wait for the page to load
+
+        #Validation
+        Then <checkPointValue1>
+
+        Examples:
+            | checkPointType           | company                       | supplierNumberType | vendorType           | accountType     | contactPerson   | status          | supplierGroupTier | language        | commsnInfo   | personName | addressLine1     | town         | country            | postalCode | clientName | bankAccountType | bankAccountNumber | bank  | checkPointValue1                                                                                                                                                                                                           |
+            | existingSupplierNameType | 01 - KAAP AGRI BEDRYF LIMITED | 001                | 1 - Sole Proprietary | 1 - Cheque    | 15 - ONAKTIEF   | A - Active      | 004 - OK SUPPLIER | E - English     | 071 234 5678 | RegAddErr  | 1 RegTest Street | Johannesburg | ZAF - South Africa | 2091       | RegAddErr  | 1 - Cheque      | 62189740212       | 21    | I confirm validation text contains "Supplier Sub Ledger record with Supplier Number \"5\" - \"NATIONAL FOOD DISTRIBUTORS LTD\" and Supplier Account Type \"\" already exists." for field "Supplier Number / Supplier Type" |
+            #| noVendorType             | 01 - KAAP AGRI BEDRYF LIMITED | 010                | <Please Select>      | E - External    | 15 - ONAKTIEF   | A - Active      | 004 - OK SUPPLIER | E - English     | 071 234 5678 | RegAddErr  | 1 RegTest Street | Johannesburg | ZAF - South Africa | 2091       | RegAddErr  | 1 - Cheque      | 62189740212       | 21    | I confirm validation text contains "The Vendor Type is mandatory, but none was supplied." for field "Vendor Type"                                                                                                          |
+            #| noCompany                | <Please Select>               | 010                | 1 - Sole Proprietary | E - External    | 15 - ONAKTIEF   | A - Active      | 004 - OK SUPPLIER | E - English     | 071 234 5678 | RegAddErr  | 1 RegTest Street | Johannesburg | ZAF - South Africa | 2091       | RegAddErr  | 1 - Cheque      | 62189740212       | 21    | I confirm validation text contains "The Company Code is mandatory, but none was supplied." for field "Company"                                                                                                             |
+            #| noContactPerson          | 01 - KAAP AGRI BEDRYF LIMITED | 010                | 1 - Sole Proprietary | E - External    | <Please Select> | A - Active      | 004 - OK SUPPLIER | E - English     | 071 234 5678 | RegAddErr  | 1 RegTest Street | Johannesburg | ZAF - South Africa | 2091       | RegAddErr  | 1 - Cheque      | 62189740212       | 21    | I confirm validation text contains "The Contact Person Code is mandatory, but none was supplied." for field "Contact Person"                                                                                               |
+            #| noLanguage               | 01 - KAAP AGRI BEDRYF LIMITED | 010                | 1 - Sole Proprietary | E - External    | 15 - ONAKTIEF   | A - Active      | 004 - OK SUPPLIER | <Please Select> | 071 234 5678 | RegAddErr  | 1 RegTest Street | Johannesburg | ZAF - South Africa | 2091       | RegAddErr  | 1 - Cheque      | 62189740212       | 21    | I confirm validation text contains "The Language Code is mandatory, but none was supplied." for field "Language"                                                                                                           |
+            #| noAccountType            | 01 - KAAP AGRI BEDRYF LIMITED | 010                | 1 - Sole Proprietary | E - External    | 15 - ONAKTIEF   | A - Active      | 004 - OK SUPPLIER | E - English     | 071 234 5678 | RegAddErr  | 1 RegTest Street | Johannesburg | ZAF - South Africa | 2091       | RegAddErr  | <None>          | 62189740212       | 21    | I confirm validation text contains "The Bank Account Type is mandatory, but none was supplied." for field "Account Type" in container "Bank Account Details"                                                               |
+            #| noAccountNumber          | 01 - KAAP AGRI BEDRYF LIMITED | 010                | 1 - Sole Proprietary | E - External    | 15 - ONAKTIEF   | A - Active      | 004 - OK SUPPLIER | E - English     | 071 234 5678 | RegAddErr  | 1 RegTest Street | Johannesburg | ZAF - South Africa | 2091       | RegAddErr  | 1 - Cheque      | empty             | 21    | I confirm validation text contains "The Bank Account Number is mandatory, but none was supplied." for field "Account Number" in container "Bank Account Details"                                                           |
+            #| noBank&Branch            | 01 - KAAP AGRI BEDRYF LIMITED | 010                | 1 - Sole Proprietary | E - External    | 15 - ONAKTIEF   | A - Active      | 004 - OK SUPPLIER | E - English     | 071 234 5678 | RegAddErr  | 1 RegTest Street | Johannesburg | ZAF - South Africa | 2091       | RegAddErr  | 1 - Cheque      | 62189740212       | empty | I confirm validation text contains "The Bank Code is mandatory, but none was supplied." for field "Bank"                                                                                                                   |
+
+    # # RS-56676 - DD_CashSupplierSubAccount_Success 2 of 3
+    Scenario: Update Supplier Sub Account- success
+    
+        And I enter value "5" in field "Supplier Number"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "5" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Supplier Sub Accounts"
+        And I wait for the page to load
+
+        #Search for record
+        And I click on value with link text "7"
+        And I wait for the page to load
+
+        #Update Supplier Sub Account
+        And I click on the "Change" button
+        And I wait for the page to load
+        And I select value "I - Internal" for field "Account Type"
+        And I enter value "Regression Updated Successfully" in field "Change Reason"
+        And I enter value "49" in field "Bank"
+        And I click on the search glass for the field "Bank"
+        And I switch to the new window
+        And I click on element with text "49" in a table
+        And I switch to the previous window
+
+        #Submit
+        And I click on the "Submit" button
+        And I wait for the page to load
+
+        #Navigate to the added record
+        And I hover on menu item "Unicorn"
+        And I click on menu item "Supplier Maintenance"
+        And I wait for the page to load
+        And I enter value "NATIONAL FOOD DISTRIBUTORS LTD" in field "Registered Company name"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "5" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Supplier Sub Accounts"
+        And I wait for the page to load
+        And I click on value with link text "7"
+        And I wait for the page to load
+
+        #Validation
+        Then I confirm value "I - Internal" for field "Account Type"
+
+
+    # RS-56676 - DD_CashSupplierSubAccount_Success 3 of 3
+    Scenario: Delete Supplier Sub Account- success
+
+        And I enter value "5" in field "Supplier Number"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "5" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Supplier Sub Accounts"
+        And I wait for the page to load
+
+        #Search for record
+        And I click on value with link text "8"
+        And I wait for the page to load
+
+        #Deltete Supplier Sub Account
+        And I click on the "Delete" button
+        And I wait for the page to load
+        And I click on the "Confirm" button
+        And I wait for the page to load
+
+        #Navigate to the deleted record
+        And I hover on menu item "Unicorn"
+        And I click on menu item "Supplier Maintenance"
+        And I wait for the page to load
+        And I enter value "NATIONAL FOOD DISTRIBUTORS LTD	" in field "Registered Company name"
+        And I click on the "Search" button
+        And I wait for the page to load
+        And I click on value with link text "5" in container ""
+        And I wait for the page to load
+        And I hover over button "Options" and click on option "Supplier Sub Accounts"
+        And I wait for the page to load
+        And I enter value "8" in field "Supplier Sub Account Number"
+        And I click on the "Search" button
+        And I wait for the page to load
+
+        #Validation
+        Then I confirm value "No data found matching the specified criteria..." is present in appArea
+
+
+    

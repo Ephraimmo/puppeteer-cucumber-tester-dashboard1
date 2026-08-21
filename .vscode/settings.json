@@ -1,0 +1,9 @@
+{
+    "liveServer.settings.port": 5501,
+    "chat.tools.terminal.autoApprove": {
+        "/^node --check runtime/progress\\.js; node --check runtime/world\\.js$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
