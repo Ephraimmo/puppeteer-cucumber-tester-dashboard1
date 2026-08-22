@@ -35,35 +35,48 @@ function writeState() {
     firebaseProgress.publish(state);
 }
 
+// cucumber 1.3 registerHandler('AfterScenario') passes a ScenarioResult wrapper — unwrap it
+function unwrapScenario(scenario) {
+    return scenario && typeof scenario.getScenario === 'function' ? scenario.getScenario() : scenario;
+}
+
 function scenarioName(scenario) {
-    if (!scenario) {
+    var inner = unwrapScenario(scenario);
+
+    if (!inner && !scenario) {
         return 'Unknown scenario';
     }
 
-    if (typeof scenario.getName === 'function') {
-        return scenario.getName();
+    if (typeof (inner || scenario).getName === 'function') {
+        return (inner || scenario).getName();
     }
 
-    return scenario.name || scenario.title || 'Unknown scenario';
+    return (scenario || {}).name || (inner || {}).name || 'Unknown scenario';
 }
 
 function scenarioFile(scenario) {
-    if (!scenario) {
+    var inner = unwrapScenario(scenario);
+    var target = inner || scenario;
+
+    if (!target) {
         return null;
     }
 
-    if (typeof scenario.getUri === 'function') {
-        var uri = scenario.getUri();
+    if (typeof target.getUri === 'function') {
+        var uri = target.getUri();
         if (uri) {
             return uri;
         }
     }
 
-    if (typeof scenario.getFeature === 'function' && scenario.getFeature() && typeof scenario.getFeature().getUri === 'function') {
-        return scenario.getFeature().getUri();
+    if (typeof target.getFeature === 'function' && target.getFeature() && typeof target.getFeature().getUri === 'function') {
+        var featureUri = target.getFeature().getUri();
+        if (featureUri) {
+            return featureUri;
+        }
     }
 
-    return scenario.uri || scenario.featureFile || null;
+    return target.uri || target.featureFile || null;
 }
 
 function stepName(step) {
@@ -173,8 +186,18 @@ module.exports = {
 
     afterScenario: function (scenario) {
         var name = scenarioName(scenario);
+        // ScenarioResult has no usable name — fall back to the scenario we marked running earlier
+        if (name === 'Unknown scenario' && state.current) {
+            name = state.current;
+        }
         var item = state.scenarios.find(function (entry) { return entry.name === name && entry.status === 'running'; });
-        var failed = scenario && typeof scenario.isFailed === 'function' && scenario.isFailed();
+        var failed = false;
+        if (typeof scenario.isFailed === 'function') {
+            failed = scenario.isFailed();
+        }
+        else if (typeof scenario.getStatus === 'function') {
+            failed = scenario.getStatus() === 'failed';
+        }
 
         if (!item) {
             item = { name: name, featureFile: scenarioFile(scenario), startedAt: null, duration: 0, steps: [] };

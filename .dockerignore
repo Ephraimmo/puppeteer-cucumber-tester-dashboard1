@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.cursor
+.kilo
+artifacts/visual-regression/diffs
+features/reports/runner-last-run.log
+features/reports/backup-*

@@ -123,7 +123,13 @@ module.exports = async function () {
                 devtools: devTools === true,
                 slowMo: global.DEFAULT_SLOW_MO, // slow down by specified ms so we can view in headful mode
                 args: [
-                    `--start-maximized`
+                    '--start-maximized',
+                    // Standard automation flags — required for containerised/CI
+                    // environments and prevents GPU/sandbox crashes on headless runs.
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-gpu'
                 ]
             };
 
@@ -191,6 +197,19 @@ module.exports = async function () {
         progress.afterStep(step);
     });
 
+    // failure detection + screenshots need the API scenario (isFailed/attach live here,
+    // NOT on the ScenarioResult passed to registerHandler('AfterScenario'))
+    this.After(async function (apiScenario) {
+        if (page && typeof apiScenario.isFailed === 'function' && apiScenario.isFailed() && !global.noScreenshot) {
+            var screenshot = await page.screenshot({ encoding: 'base64', fullPage: true });
+            apiScenario.attach(Buffer.from(screenshot, 'base64'), 'image/png');
+        }
+    });
+
+    this.registerHandler('AfterScenario', function (scenarioResult) {
+        progress.afterScenario(scenarioResult);
+    });
+
     this.registerHandler('AfterFeatures', function (features, done) {
 
         var cucumberReportPath = path.resolve(global.reportsPath, 'cucumber-report.json');
@@ -223,21 +242,4 @@ module.exports = async function () {
         teardownBrowser().then(done);
     });
 
-    // executed after each scenario (always closes the browser to ensure fresh tests)
-    this.After(async function (scenario) {
-
-        // if we have a page object and there is an error
-        if (page && scenario.isFailed() && !global.noScreenshot) {
-
-            // take a screenshot
-            var screenshot = await page.screenshot({ encoding: 'base64', fullPage: true });
-
-            // add a screenshot to the error report
-            scenario.attach(Buffer.from(screenshot, 'base64'), 'image/png');
-        }
-
-        progress.afterScenario(scenario);
-
-        return teardownBrowser();
-    });
 };

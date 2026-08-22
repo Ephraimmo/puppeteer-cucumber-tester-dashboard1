@@ -1,0 +1,23 @@
+Feature: Login And Register Page
+
+  [36m@feat[39m
+  Scenario: User attempts to Register - form is available
+(node:16588) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I tab to the "REGISTER" tab[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I should see the "Full Name *" field[39m
+  [32m√ And I should see the "Email *" field[39m
+  [32m√ And I should see the "Phone (optional)" field[39m
+  [32m√ And I should see the "Password *" field[39m
+  [32m√ And I should see the "CREATE ACCOUNT" message[39m
+
+1 scenario ([32m1 passed[39m)
+12 steps ([32m12 passed[39m)
+0m08.344s
+Cucumber HTML report C:\Users\karabomo\Downloads\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\puppeteer-cucumber-tester-dashboard\features\reports\-cucumber-report.html generated successfully.

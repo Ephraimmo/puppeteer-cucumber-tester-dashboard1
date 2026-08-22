@@ -8,6 +8,8 @@ var root = __dirname;
 var reports = path.join(root, 'features', 'reports');
 var port = process.env.PORT || 4173;
 var activeRun = { status: 'idle', tag: null, requestedTag: null, startedAt: null, finishedAt: null, exitCode: null, message: 'Ready to run' };
+var stopRequested = false;
+var runnerProcess = null;
 
 function featureFiles(directory) {
     return fs.readdirSync(directory, { withFileTypes: true }).reduce(function (files, entry) {
@@ -85,6 +87,11 @@ function requestedRunTag(requestedTag, features) {
     return tags.indexOf(requestedTag) >= 0 ? requestedTag : requestedTag === '@feat' && tags.indexOf('@featTest') >= 0 ? '@featTest' : null;
 }
 
+function hasDisplay() {
+    if (process.platform === 'win32' || process.platform === 'darwin') return true;
+    return Boolean(process.env.DISPLAY || process.env.WAYLAND_DISPLAY);
+}
+
 function startRun(requestedTag, featureFile, headless, response) {
     if (activeRun.status === 'running') {
         response.writeHead(409, { 'Content-Type': 'application/json' });
@@ -107,6 +114,9 @@ function startRun(requestedTag, featureFile, headless, response) {
         return;
     }
 
+    stopRequested = false;
+    // the client may have stale env state — clamp headed runs to machines that actually have a desktop
+    headless = headless === true || headless === undefined || !hasDisplay();
     activeRun = { status: 'running', tag: selectedFeature ? null : tag, requestedTag: requestedTag, featureFile: featureFile || null, startedAt: new Date().toISOString(), finishedAt: null, exitCode: null, message: selectedFeature ? 'Running all scenarios in ' + path.basename(featureFile) : 'Running ' + tag };
     var runnerArgs = [path.join(root, 'index.js'), '--disableLaunchReport'];
     if (headless) {
@@ -118,14 +128,31 @@ function startRun(requestedTag, featureFile, headless, response) {
     else {
         runnerArgs.push('--tags', tag);
     }
-    var runner = childProcess.spawn(process.execPath, runnerArgs, { cwd: root, windowsHide: true, stdio: 'ignore' });
+    // windowsHide only for headless runs — a headed run must be able to show the browser window
+    var runnerLogPath = path.join(reports, 'runner-last-run.log');
+    var runnerLog = fs.createWriteStream(runnerLogPath);
+    var runner = childProcess.spawn(process.execPath, runnerArgs, { cwd: root, windowsHide: headless, stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32' });
+    runner.stdout.pipe(runnerLog, { end: false });
+    runner.stderr.pipe(runnerLog, { end: false });
+    activeRun.logFile = 'features/reports/runner-last-run.log';
+    runnerProcess = runner;
     activeRun.pid = runner.pid;
     activeRun.headless = headless;
     runner.on('close', function (code) {
+        runnerLog.end();
+        if (stopRequested) {
+            stopRequested = false;
+            runnerProcess = null;
+            resetProgress();
+            activeRun = { status: 'idle', tag: null, requestedTag: null, featureFile: null, startedAt: activeRun.startedAt, finishedAt: new Date().toISOString(), exitCode: null, message: 'Run stopped by user' };
+            return;
+        }
+        runnerProcess = null;
+        var crashed = code !== 0 && finalizeAbnormalExit();
         activeRun.status = code === 0 ? 'complete' : 'failed';
         activeRun.exitCode = code;
         activeRun.finishedAt = new Date().toISOString();
-        activeRun.message = code === 0 ? 'Run complete' : 'Run finished with failures';
+        activeRun.message = code === 0 ? 'Run complete' : (crashed ? 'Runner crashed before finishing — see features/reports/runner-last-run.log' : 'Run finished with failures');
     });
     response.writeHead(202, { 'Content-Type': 'application/json' });
     response.end(JSON.stringify(activeRun));
@@ -169,6 +196,33 @@ function readJson(filePath, fallback) {
     catch (error) {
         return fallback;
     }
+}
+
+function writeJson(filePath, value) {
+    try {
+        fs.writeFileSync(filePath, JSON.stringify(value));
+    }
+    catch (error) {}
+}
+
+function resetProgress() {
+    writeJson(path.join(reports, 'progress.json'), {
+        status: 'idle',
+        current: null,
+        scenarios: [],
+        counts: { passed: 0, failed: 0, running: 0, queued: 0 }
+    });
+}
+
+// If the runner crashed before finalizing, progress.json is left in a
+// stuck "running" state — clear it so the dashboard doesn't hang.
+function finalizeAbnormalExit() {
+    var progress = readJson(path.join(reports, 'progress.json'), { status: 'idle' });
+    if (progress.status === 'running') {
+        resetProgress();
+        return true;
+    }
+    return false;
 }
 
 http.createServer(function (request, response) {
@@ -253,6 +307,37 @@ http.createServer(function (request, response) {
         return;
     }
 
+    if (requestPath === '/api/stop' && request.method === 'POST') {
+        if (activeRun.status !== 'running' || !activeRun.pid) {
+            response.writeHead(409, { 'Content-Type': 'application/json' });
+            response.end(JSON.stringify({ message: 'No run is currently active.' }));
+            return;
+        }
+        stopRequested = true;
+        var pid = activeRun.pid;
+        try {
+            try { process.kill(-pid, 'SIGTERM'); }
+            catch (groupError) { try { process.kill(pid, 'SIGTERM'); } catch (pidError) {} }
+        }
+        catch (error) {}
+        // Guarantee termination — the runner may ignore SIGTERM.
+        setTimeout(function () {
+            try { process.kill(-pid, 'SIGKILL'); }
+            catch (groupError) { try { process.kill(pid, 'SIGKILL'); } catch (pidError) {} }
+        }, 1500).unref();
+        resetProgress();
+        activeRun = { status: 'idle', tag: null, requestedTag: null, featureFile: null, startedAt: activeRun.startedAt, finishedAt: new Date().toISOString(), exitCode: null, message: 'Run stopped by user' };
+        response.writeHead(200, { 'Content-Type': 'application/json' });
+        response.end(JSON.stringify({ message: 'Run stopped.' }));
+        return;
+    }
+
+    if (requestPath === '/api/env') {
+        response.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+        response.end(JSON.stringify({ headlessOnly: !hasDisplay(), platform: process.platform, node: process.version }));
+        return;
+    }
+
     var files = {
         '/': ['dashboard.html', 'text/html; charset=utf-8'],
         '/dashboard.html': ['dashboard.html', 'text/html; charset=utf-8'],
@@ -267,6 +352,17 @@ http.createServer(function (request, response) {
 
     response.writeHead(404);
     response.end('Not found');
-}).listen(port, function () {
-    console.log('Scenario progress dashboard: http://localhost:' + port);
+}).listen(port, '0.0.0.0', function () {
+    console.log('Scenario progress dashboard listening on port ' + port);
+
+    // --open (or DASHBOARD_OPEN=1) pops the dashboard open in the default browser
+    if (process.argv.indexOf('--open') >= 0 || process.env.DASHBOARD_OPEN === '1') {
+        var url = 'http://localhost:' + port;
+        if (process.platform === 'win32') {
+            childProcess.spawn('cmd', ['/s', '/c', 'start', '""', url], { detached: true, stdio: 'ignore', windowsHide: true }).unref();
+        }
+        else {
+            childProcess.spawn(process.platform === 'darwin' ? 'open' : 'xdg-open', [url], { detached: true, stdio: 'ignore' }).unref();
+        }
+    }
 });

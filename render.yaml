@@ -1,0 +1,16 @@
+# Render Blueprint — deploy from the Render dashboard:
+# New > Blueprint > connect this repo > Apply
+#
+# Headless only on Render (no desktop). Use Headless mode in the UI, not Windowed.
+# Starter plan (512 MB+) is recommended; Puppeteer needs more RAM than the free tier often allows.
+
+services:
+  - type: web
+    name: scenario-test-dashboard
+    runtime: docker
+    plan: starter
+    region: frankfurt
+    healthCheckPath: /api/env
+    envVars:
+      - key: NODE_ENV
+        value: production

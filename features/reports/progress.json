@@ -1,968 +1,128 @@
 {
-  "runId": "2026-08-21T11:49:16.612Z",
+  "runId": "2026-08-22T05:27:51.130Z",
   "status": "failed",
-  "startedAt": "2026-08-21T11:49:16.618Z",
-  "updatedAt": "2026-08-21T11:51:49.639Z",
+  "startedAt": "2026-08-22T05:27:51.139Z",
+  "updatedAt": "2026-08-22T05:28:08.708Z",
   "current": null,
   "scenarios": [
     {
       "name": "User attempts to Register - form is available",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
+      "featureFile": "C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/customerApp/login.feature",
       "status": "passed",
-      "startedAt": "2026-08-21T11:49:20.266Z",
-      "finishedAt": "2026-08-21T11:50:12.718Z",
-      "duration": 52452,
+      "startedAt": "2026-08-22T05:27:52.077Z",
+      "finishedAt": "2026-08-22T05:28:08.308Z",
+      "duration": 16231,
       "steps": [
         {
           "keyword": "When ",
           "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
           "status": "passed",
-          "startedAt": "2026-08-21T11:49:45.003Z",
-          "duration": 23809,
-          "finishedAt": "2026-08-21T11:50:08.812Z"
+          "startedAt": "2026-08-22T05:27:59.457Z",
+          "duration": 4561,
+          "finishedAt": "2026-08-22T05:28:04.018Z"
         },
         {
           "keyword": "And ",
           "name": "I click on the \"ACCOUNT\" button",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:08.826Z",
-          "duration": 77,
-          "finishedAt": "2026-08-21T11:50:08.903Z"
+          "startedAt": "2026-08-22T05:28:04.026Z",
+          "duration": 63,
+          "finishedAt": "2026-08-22T05:28:04.089Z"
         },
         {
           "keyword": "And ",
           "name": "I wait for ajax to complete",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:08.913Z",
-          "duration": 1059,
-          "finishedAt": "2026-08-21T11:50:09.972Z"
+          "startedAt": "2026-08-22T05:28:04.119Z",
+          "duration": 1203,
+          "finishedAt": "2026-08-22T05:28:05.322Z"
         },
         {
           "keyword": "And ",
           "name": "I click on the \"SIGN IN\" button",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:09.979Z",
-          "duration": 39,
-          "finishedAt": "2026-08-21T11:50:10.018Z"
+          "startedAt": "2026-08-22T05:28:05.334Z",
+          "duration": 273,
+          "finishedAt": "2026-08-22T05:28:05.607Z"
         },
         {
           "keyword": "And ",
           "name": "I wait for ajax to complete",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:10.024Z",
-          "duration": 1045,
-          "finishedAt": "2026-08-21T11:50:11.069Z"
+          "startedAt": "2026-08-22T05:28:05.615Z",
+          "duration": 1047,
+          "finishedAt": "2026-08-22T05:28:06.662Z"
         },
         {
           "keyword": "Then ",
           "name": "I tab to the \"REGISTER\" tab",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:11.076Z",
-          "duration": 39,
-          "finishedAt": "2026-08-21T11:50:11.115Z"
+          "startedAt": "2026-08-22T05:28:06.672Z",
+          "duration": 37,
+          "finishedAt": "2026-08-22T05:28:06.709Z"
         },
         {
           "keyword": "And ",
           "name": "I wait for ajax to complete",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:11.122Z",
-          "duration": 1047,
-          "finishedAt": "2026-08-21T11:50:12.169Z"
+          "startedAt": "2026-08-22T05:28:06.724Z",
+          "duration": 1055,
+          "finishedAt": "2026-08-22T05:28:07.779Z"
         },
         {
           "keyword": "Then ",
           "name": "I should see the \"Full Name *\" field",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:12.174Z",
-          "duration": 26,
-          "finishedAt": "2026-08-21T11:50:12.200Z"
+          "startedAt": "2026-08-22T05:28:07.791Z",
+          "duration": 33,
+          "finishedAt": "2026-08-22T05:28:07.824Z"
         },
         {
           "keyword": "And ",
           "name": "I should see the \"Email *\" field",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:12.205Z",
-          "duration": 27,
-          "finishedAt": "2026-08-21T11:50:12.232Z"
+          "startedAt": "2026-08-22T05:28:07.844Z",
+          "duration": 42,
+          "finishedAt": "2026-08-22T05:28:07.886Z"
         },
         {
           "keyword": "And ",
           "name": "I should see the \"Phone (optional)\" field",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:12.239Z",
-          "duration": 48,
-          "finishedAt": "2026-08-21T11:50:12.287Z"
+          "startedAt": "2026-08-22T05:28:07.900Z",
+          "duration": 49,
+          "finishedAt": "2026-08-22T05:28:07.949Z"
         },
         {
           "keyword": "And ",
           "name": "I should see the \"Password *\" field",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:12.385Z",
-          "duration": 49,
-          "finishedAt": "2026-08-21T11:50:12.434Z"
+          "startedAt": "2026-08-22T05:28:07.969Z",
+          "duration": 57,
+          "finishedAt": "2026-08-22T05:28:08.026Z"
         },
         {
           "keyword": "And ",
           "name": "I should see the \"CREATE ACCOUNT\" message",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:12.596Z",
-          "duration": 55,
-          "finishedAt": "2026-08-21T11:50:12.651Z"
+          "startedAt": "2026-08-22T05:28:08.053Z",
+          "duration": 233,
+          "finishedAt": "2026-08-22T05:28:08.286Z"
         },
         {
           "keyword": "After ",
           "status": "passed",
-          "startedAt": "2026-08-21T11:50:12.707Z",
-          "duration": 11,
-          "finishedAt": "2026-08-21T11:50:12.718Z"
-        }
-      ]
-    },
-    {
-      "name": "User attempts to login with valid credentials",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
-      "status": "passed",
-      "startedAt": "2026-08-21T11:50:15.558Z",
-      "finishedAt": "2026-08-21T11:50:35.403Z",
-      "duration": 19845,
-      "steps": [
-        {
-          "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:17.232Z",
-          "duration": 4484,
-          "finishedAt": "2026-08-21T11:50:21.716Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:21.723Z",
-          "duration": 102,
-          "finishedAt": "2026-08-21T11:50:21.825Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:21.833Z",
-          "duration": 1043,
-          "finishedAt": "2026-08-21T11:50:22.876Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:22.883Z",
-          "duration": 40,
-          "finishedAt": "2026-08-21T11:50:22.923Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:22.929Z",
-          "duration": 1043,
-          "finishedAt": "2026-08-21T11:50:23.972Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I tab to the \"REGISTER\" tab",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:23.979Z",
-          "duration": 37,
-          "finishedAt": "2026-08-21T11:50:24.016Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:24.028Z",
-          "duration": 1050,
-          "finishedAt": "2026-08-21T11:50:25.078Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I enter \"nkanyezisecurity\" into the \"Full Name *\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:25.085Z",
-          "duration": 846,
-          "finishedAt": "2026-08-21T11:50:25.931Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:25.938Z",
-          "duration": 1061,
-          "finishedAt": "2026-08-21T11:50:26.999Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"nkanyezisecurity@gmail.com\" into the \"Email *\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:27.006Z",
-          "duration": 1145,
-          "finishedAt": "2026-08-21T11:50:28.151Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:28.156Z",
-          "duration": 1129,
-          "finishedAt": "2026-08-21T11:50:29.285Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"+27824815280\" into the \"Phone (optional)\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:29.290Z",
-          "duration": 743,
-          "finishedAt": "2026-08-21T11:50:30.033Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:30.039Z",
-          "duration": 1049,
-          "finishedAt": "2026-08-21T11:50:31.088Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"Ephraim@217377781\" into the \"Password *\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:31.097Z",
-          "duration": 891,
-          "finishedAt": "2026-08-21T11:50:31.988Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:31.996Z",
-          "duration": 1047,
-          "finishedAt": "2026-08-21T11:50:33.043Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"CREATE ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:33.048Z",
-          "duration": 1096,
-          "finishedAt": "2026-08-21T11:50:34.144Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:34.148Z",
-          "duration": 1038,
-          "finishedAt": "2026-08-21T11:50:35.186Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"SIGN OUT\" message",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:35.265Z",
-          "duration": 47,
-          "finishedAt": "2026-08-21T11:50:35.312Z"
-        },
-        {
-          "keyword": "After ",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:35.370Z",
-          "duration": 33,
-          "finishedAt": "2026-08-21T11:50:35.403Z"
-        }
-      ]
-    },
-    {
-      "name": "User attempts to login - form is available",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
-      "status": "passed",
-      "startedAt": "2026-08-21T11:50:38.783Z",
-      "finishedAt": "2026-08-21T11:50:47.671Z",
-      "duration": 8888,
-      "steps": [
-        {
-          "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:40.714Z",
-          "duration": 4246,
-          "finishedAt": "2026-08-21T11:50:44.960Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:44.967Z",
-          "duration": 70,
-          "finishedAt": "2026-08-21T11:50:45.037Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:45.052Z",
-          "duration": 1118,
-          "finishedAt": "2026-08-21T11:50:46.170Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:46.178Z",
-          "duration": 62,
-          "finishedAt": "2026-08-21T11:50:46.240Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:46.251Z",
-          "duration": 1065,
-          "finishedAt": "2026-08-21T11:50:47.316Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"Email\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:47.324Z",
-          "duration": 24,
-          "finishedAt": "2026-08-21T11:50:47.348Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I should see the \"Password\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:47.354Z",
-          "duration": 26,
-          "finishedAt": "2026-08-21T11:50:47.380Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I should see the \"SIGN IN\" message",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:47.391Z",
-          "duration": 230,
-          "finishedAt": "2026-08-21T11:50:47.621Z"
-        },
-        {
-          "keyword": "After ",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:47.651Z",
-          "duration": 20,
-          "finishedAt": "2026-08-21T11:50:47.671Z"
-        }
-      ]
-    },
-    {
-      "name": "User attempts to login with valid credentials",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
-      "status": "passed",
-      "startedAt": "2026-08-21T11:50:50.630Z",
-      "finishedAt": "2026-08-21T11:51:05.014Z",
-      "duration": 14384,
-      "steps": [
-        {
-          "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:52.734Z",
-          "duration": 3728,
-          "finishedAt": "2026-08-21T11:50:56.462Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:56.470Z",
-          "duration": 99,
-          "finishedAt": "2026-08-21T11:50:56.569Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:56.581Z",
-          "duration": 1175,
-          "finishedAt": "2026-08-21T11:50:57.756Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:57.763Z",
-          "duration": 318,
-          "finishedAt": "2026-08-21T11:50:58.081Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:58.091Z",
-          "duration": 1049,
-          "finishedAt": "2026-08-21T11:50:59.140Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I enter \"demo@hearth.app\" into the \"Email\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:50:59.223Z",
-          "duration": 1640,
-          "finishedAt": "2026-08-21T11:51:00.863Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:00.869Z",
-          "duration": 1061,
-          "finishedAt": "2026-08-21T11:51:01.930Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"hearth123\" into the \"Password\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:01.936Z",
-          "duration": 765,
-          "finishedAt": "2026-08-21T11:51:02.701Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:02.708Z",
-          "duration": 1039,
-          "finishedAt": "2026-08-21T11:51:03.747Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:03.753Z",
-          "duration": 149,
-          "finishedAt": "2026-08-21T11:51:03.902Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:03.909Z",
-          "duration": 1048,
-          "finishedAt": "2026-08-21T11:51:04.957Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"SIGN OUT\" message",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:04.962Z",
-          "duration": 42,
-          "finishedAt": "2026-08-21T11:51:05.004Z"
-        },
-        {
-          "keyword": "After ",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:05.009Z",
-          "duration": 5,
-          "finishedAt": "2026-08-21T11:51:05.014Z"
-        }
-      ]
-    },
-    {
-      "name": "User attempts to login with invalid credentials - Invalid Email and Password",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
-      "status": "passed",
-      "startedAt": "2026-08-21T11:51:05.820Z",
-      "finishedAt": "2026-08-21T11:51:17.045Z",
-      "duration": 11225,
-      "steps": [
-        {
-          "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:07.734Z",
-          "duration": 3824,
-          "finishedAt": "2026-08-21T11:51:11.558Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:11.598Z",
-          "duration": 36,
-          "finishedAt": "2026-08-21T11:51:11.634Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:11.655Z",
-          "duration": 1137,
-          "finishedAt": "2026-08-21T11:51:12.792Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:12.802Z",
-          "duration": 33,
-          "finishedAt": "2026-08-21T11:51:12.835Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:12.841Z",
-          "duration": 1049,
-          "finishedAt": "2026-08-21T11:51:13.890Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"nkanyezisecurit@gmail.com\" into the \"Email\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:13.897Z",
-          "duration": 1166,
-          "finishedAt": "2026-08-21T11:51:15.063Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"Ephraim@21737778\" into the \"Password\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:15.070Z",
-          "duration": 799,
-          "finishedAt": "2026-08-21T11:51:15.869Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:15.876Z",
-          "duration": 55,
-          "finishedAt": "2026-08-21T11:51:15.931Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:15.936Z",
-          "duration": 1048,
-          "finishedAt": "2026-08-21T11:51:16.984Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"Invalid email or password\" message",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:16.995Z",
-          "duration": 35,
-          "finishedAt": "2026-08-21T11:51:17.030Z"
-        },
-        {
-          "keyword": "After ",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:17.038Z",
+          "startedAt": "2026-08-22T05:28:08.293Z",
           "duration": 7,
-          "finishedAt": "2026-08-21T11:51:17.045Z"
-        }
-      ]
-    },
-    {
-      "name": "User attempts to login with invalid credentials - Invalid Email",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
-      "status": "passed",
-      "startedAt": "2026-08-21T11:51:18.660Z",
-      "finishedAt": "2026-08-21T11:51:31.183Z",
-      "duration": 12523,
-      "steps": [
-        {
-          "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:20.294Z",
-          "duration": 3661,
-          "finishedAt": "2026-08-21T11:51:23.955Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:23.961Z",
-          "duration": 56,
-          "finishedAt": "2026-08-21T11:51:24.017Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:24.028Z",
-          "duration": 1054,
-          "finishedAt": "2026-08-21T11:51:25.082Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:25.094Z",
-          "duration": 37,
-          "finishedAt": "2026-08-21T11:51:25.131Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:25.138Z",
-          "duration": 1071,
-          "finishedAt": "2026-08-21T11:51:26.209Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"nkanyezisecurit@gmail.com\" into the \"Email\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:26.217Z",
-          "duration": 2887,
-          "finishedAt": "2026-08-21T11:51:29.104Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"Ephraim@217377781\" into the \"Password\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:29.108Z",
-          "duration": 819,
-          "finishedAt": "2026-08-21T11:51:29.927Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:29.931Z",
-          "duration": 151,
-          "finishedAt": "2026-08-21T11:51:30.082Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:30.087Z",
-          "duration": 1040,
-          "finishedAt": "2026-08-21T11:51:31.127Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"Invalid email or password\" message",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:31.132Z",
-          "duration": 42,
-          "finishedAt": "2026-08-21T11:51:31.174Z"
-        },
-        {
-          "keyword": "After ",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:31.179Z",
-          "duration": 4,
-          "finishedAt": "2026-08-21T11:51:31.183Z"
-        }
-      ]
-    },
-    {
-      "name": "User attempts to login with invalid credentials - Empty Email and Password",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
-      "status": "running",
-      "startedAt": "2026-08-21T11:51:32.181Z",
-      "finishedAt": null,
-      "duration": 0,
-      "steps": [
-        {
-          "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:33.955Z",
-          "duration": 3752,
-          "finishedAt": "2026-08-21T11:51:37.707Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:37.733Z",
-          "duration": 67,
-          "finishedAt": "2026-08-21T11:51:37.800Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:37.817Z",
-          "duration": 1055,
-          "finishedAt": "2026-08-21T11:51:38.872Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:38.879Z",
-          "duration": 8,
-          "finishedAt": "2026-08-21T11:51:38.887Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:38.897Z",
-          "duration": 15,
-          "finishedAt": "2026-08-21T11:51:38.912Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"Empty\" into the \"Email\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:38.921Z",
-          "duration": 22,
-          "finishedAt": "2026-08-21T11:51:38.943Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"Empty\" into the \"Password\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:38.969Z",
-          "duration": 27,
-          "finishedAt": "2026-08-21T11:51:38.996Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:39.007Z",
-          "duration": 17,
-          "finishedAt": "2026-08-21T11:51:39.024Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:39.043Z",
-          "duration": 10,
-          "finishedAt": "2026-08-21T11:51:39.053Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"Invalid email or password\" message",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:39.072Z",
-          "duration": 17,
-          "finishedAt": "2026-08-21T11:51:39.089Z"
-        },
-        {
-          "keyword": "After ",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:39.111Z",
-          "duration": 36,
-          "finishedAt": "2026-08-21T11:51:39.147Z"
-        }
-      ]
-    },
-    {
-      "name": "User attempts to login with invalid credentials - Empty Email",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
-      "status": "running",
-      "startedAt": "2026-08-21T11:51:39.170Z",
-      "finishedAt": null,
-      "duration": 0,
-      "steps": [
-        {
-          "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:42.332Z",
-          "duration": 2175,
-          "finishedAt": "2026-08-21T11:51:44.507Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.523Z",
-          "duration": 25,
-          "finishedAt": "2026-08-21T11:51:44.548Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.561Z",
-          "duration": 42,
-          "finishedAt": "2026-08-21T11:51:44.603Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.634Z",
-          "duration": 29,
-          "finishedAt": "2026-08-21T11:51:44.663Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.694Z",
-          "duration": 15,
-          "finishedAt": "2026-08-21T11:51:44.709Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"Empty\" into the \"Email\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.718Z",
-          "duration": 10,
-          "finishedAt": "2026-08-21T11:51:44.728Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"Ephraim@21737778\" into the \"Password\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.735Z",
-          "duration": 10,
-          "finishedAt": "2026-08-21T11:51:44.745Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.754Z",
-          "duration": 8,
-          "finishedAt": "2026-08-21T11:51:44.762Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.770Z",
-          "duration": 13,
-          "finishedAt": "2026-08-21T11:51:44.783Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"Invalid email or password\" message",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.796Z",
-          "duration": 13,
-          "finishedAt": "2026-08-21T11:51:44.809Z"
-        },
-        {
-          "keyword": "After ",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:44.819Z",
-          "duration": 12,
-          "finishedAt": "2026-08-21T11:51:44.831Z"
-        }
-      ]
-    },
-    {
-      "name": "User attempts to login with invalid credentials - Empty Password",
-      "featureFile": "C:\\Users\\karabomo\\Downloads\\puppeteer-cucumber-test-master\\puppeteer-cucumber-test-master\\features\\customerApp\\login.feature",
-      "status": "running",
-      "startedAt": "2026-08-21T11:51:44.851Z",
-      "finishedAt": null,
-      "duration": 0,
-      "steps": [
-        {
-          "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:46.833Z",
-          "duration": 1347,
-          "finishedAt": "2026-08-21T11:51:48.180Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"ACCOUNT\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.190Z",
-          "duration": 7,
-          "finishedAt": "2026-08-21T11:51:48.197Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.216Z",
-          "duration": 16,
-          "finishedAt": "2026-08-21T11:51:48.232Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.313Z",
-          "duration": 14,
-          "finishedAt": "2026-08-21T11:51:48.327Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.345Z",
-          "duration": 8,
-          "finishedAt": "2026-08-21T11:51:48.353Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"nkanyezisecurity@gmail.com\" into the \"Email\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.397Z",
-          "duration": 10,
-          "finishedAt": "2026-08-21T11:51:48.407Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I enter \"Empty\" into the \"Password\" field",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.414Z",
-          "duration": 8,
-          "finishedAt": "2026-08-21T11:51:48.422Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I click on the \"SIGN IN\" button",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.429Z",
-          "duration": 12,
-          "finishedAt": "2026-08-21T11:51:48.441Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.449Z",
-          "duration": 9,
-          "finishedAt": "2026-08-21T11:51:48.458Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"Invalid email or password\" message",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.467Z",
-          "duration": 10,
-          "finishedAt": "2026-08-21T11:51:48.477Z"
-        },
-        {
-          "keyword": "After ",
-          "status": "passed",
-          "startedAt": "2026-08-21T11:51:48.486Z",
-          "duration": 9,
-          "finishedAt": "2026-08-21T11:51:48.495Z"
+          "finishedAt": "2026-08-22T05:28:08.300Z"
         }
       ]
     }
   ],
   "counts": {
-    "passed": 6,
+    "passed": 1,
     "failed": 0,
-    "running": 3,
+    "running": 0,
     "queued": 0
   },
   "currentStep": null
