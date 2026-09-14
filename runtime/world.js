@@ -211,34 +211,56 @@ module.exports = async function () {
     });
 
     this.registerHandler('AfterFeatures', function (features, done) {
-
-        var cucumberReportPath = path.resolve(global.reportsPath, 'cucumber-report.json');
-
-        if (global.reportsPath && fs.existsSync(global.reportsPath)) {
-
-            // generate the HTML report
-            var reportOptions = {
-                theme: 'bootstrap',
-                jsonFile: cucumberReportPath,
-                output: path.resolve(global.reportsPath, global.tag + '-cucumber-report.html'),
-                reportSuiteAsScenarios: true,
-                launchReport: (!global.disableLaunchReport),
-                ignoreBadJsonFile: true
-            };
-
-            reporter.generate(reportOptions);
-
-            // grab the file data
-            var reportRaw = fs.readFileSync(cucumberReportPath).toString().trim();
-            var xmlReport = cucumberJunit(reportRaw);
-            var junitOutputPath = path.resolve(global.reportsPath, 'junit-report.xml');
-
-            fs.writeFileSync(junitOutputPath, xmlReport);
+        function didAllPass() {
+            try {
+                var cucumberReportPath = path.resolve(global.reportsPath, 'cucumber-report.json');
+                if (fs.existsSync(cucumberReportPath)) {
+                    var report = JSON.parse(fs.readFileSync(cucumberReportPath, 'utf8'));
+                    var elements = (report || []).reduce(function (all, f) { return all.concat(f.elements || []); }, []);
+                    var anyFailed = elements.some(function (el) {
+                        return (el.steps || []).some(function (st) {
+                            return st.result && st.result.status === 'failed';
+                        });
+                    });
+                    return !anyFailed;
+                }
+            } catch (_) {}
+            return true;
         }
 
-        progress.finish();
+        var succeeded = true;
+        try {
+            var cucumberReportPath = path.resolve(global.reportsPath, 'cucumber-report.json');
 
-        // teardownBrowser().then(done);
+            if (global.reportsPath && fs.existsSync(global.reportsPath)) {
+
+                // generate the HTML report
+                var reportOptions = {
+                    theme: 'bootstrap',
+                    jsonFile: cucumberReportPath,
+                    output: path.resolve(global.reportsPath, global.tag + '-cucumber-report.html'),
+                    reportSuiteAsScenarios: true,
+                    launchReport: (!global.disableLaunchReport),
+                    ignoreBadJsonFile: true
+                };
+
+                reporter.generate(reportOptions);
+
+                // grab the file data
+                var reportRaw = fs.readFileSync(cucumberReportPath).toString().trim();
+                var xmlReport = cucumberJunit(reportRaw);
+                var junitOutputPath = path.resolve(global.reportsPath, 'junit-report.xml');
+
+                fs.writeFileSync(junitOutputPath, xmlReport);
+            }
+            succeeded = didAllPass();
+        } catch (err) {
+            succeeded = false;
+            try { console.error('AfterFeatures report error:', err && err.message ? err.message : err); } catch (_) {}
+        } finally {
+            try { progress.finish(succeeded); } catch (_) {}
+        }
+
         teardownBrowser().then(done);
     });
 

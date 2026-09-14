@@ -2,20 +2,20 @@
   {
     "elements": [
       {
-        "id": "login-and-register-page;user-attempts-to-register---form-is-available",
+        "id": "login-and-register-page;recorded-scenario",
         "keyword": "Scenario",
-        "line": 4,
-        "name": "User attempts to Register - form is available",
+        "line": 61,
+        "name": "Recorded scenario",
         "steps": [
           {
             "arguments": [],
             "keyword": "When ",
-            "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+            "name": "I am online at \"https://customerapp-neon.vercel.app\"",
             "result": {
               "status": "passed",
-              "duration": 4537351800
+              "duration": 2525881100
             },
-            "line": 6,
+            "line": 4,
             "match": {
               "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\google-search-steps.js:3"
             }
@@ -26,7 +26,33 @@
             "name": "I click on the \"ACCOUNT\" button",
             "result": {
               "status": "passed",
-              "duration": 47036100
+              "duration": 20843700
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:10"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I wait for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1042092300
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:95"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on the \"SIGN IN\" button",
+            "result": {
+              "status": "passed",
+              "duration": 25195000
             },
             "line": 7,
             "match": {
@@ -39,22 +65,22 @@
             "name": "I wait for ajax to complete",
             "result": {
               "status": "passed",
-              "duration": 1172574700
+              "duration": 1051356300
             },
             "line": 8,
             "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:34"
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:95"
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "I click on the \"SIGN IN\" button",
+            "name": "I click on the \"DISCOVER\" button",
             "result": {
               "status": "passed",
-              "duration": 262749700
+              "duration": 26294600
             },
-            "line": 9,
+            "line": 62,
             "match": {
               "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:10"
             }
@@ -62,105 +88,105 @@
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "I wait for ajax to complete",
+            "name": "I click on card that contains text \"Hearth Grill & Smokehouse\"",
             "result": {
               "status": "passed",
-              "duration": 1037244800
+              "duration": 76137300
             },
-            "line": 10,
+            "line": 63,
             "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:34"
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:42"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on card that contains text \"Aged Beef Double Smash Burger\"",
+            "result": {
+              "status": "passed",
+              "duration": 144394600
+            },
+            "line": 64,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:42"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I was for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1033222800
+            },
+            "line": 65,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:95"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on card that contains text \"ADD TO CART\"",
+            "result": {
+              "status": "passed",
+              "duration": 55191200
+            },
+            "line": 66,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:42"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I was for ajax to complete",
+            "result": {
+              "status": "passed",
+              "duration": 1032561300
+            },
+            "line": 67,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:95"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on card that contains text \"VIEW CART\"",
+            "result": {
+              "status": "passed",
+              "duration": 61116800
+            },
+            "line": 68,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:42"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "I click on card that contains text \"SIGN IN & CHECKOUT\"",
+            "result": {
+              "status": "passed",
+              "duration": 63779600
+            },
+            "line": 69,
+            "match": {
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:42"
             }
           },
           {
             "arguments": [],
             "keyword": "Then ",
-            "name": "I tab to the \"REGISTER\" tab",
+            "name": "I should see the \"Delivery Address Required\" message",
             "result": {
               "status": "passed",
-              "duration": 25140500
+              "duration": 40067200
             },
-            "line": 12,
+            "line": 70,
             "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:36"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "I wait for ajax to complete",
-            "result": {
-              "status": "passed",
-              "duration": 1037908700
-            },
-            "line": 13,
-            "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:34"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "name": "I should see the \"Full Name *\" field",
-            "result": {
-              "status": "passed",
-              "duration": 17101300
-            },
-            "line": 14,
-            "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:120"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "I should see the \"Email *\" field",
-            "result": {
-              "status": "passed",
-              "duration": 20777100
-            },
-            "line": 15,
-            "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:120"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "I should see the \"Phone (optional)\" field",
-            "result": {
-              "status": "passed",
-              "duration": 31797500
-            },
-            "line": 16,
-            "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:120"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "I should see the \"Password *\" field",
-            "result": {
-              "status": "passed",
-              "duration": 36829800
-            },
-            "line": 17,
-            "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:120"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "name": "I should see the \"CREATE ACCOUNT\" message",
-            "result": {
-              "status": "passed",
-              "duration": 116210700
-            },
-            "line": 18,
-            "match": {
-              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:114"
+              "location": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\step-definitions\\login-steps.js:194"
             }
           },
           {
@@ -168,7 +194,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 406900
+              "duration": 280900
             },
             "hidden": true,
             "match": {
@@ -179,7 +205,7 @@
         "tags": [
           {
             "name": "@feat",
-            "line": 3
+            "line": 60
           }
         ],
         "type": "scenario"
@@ -190,6 +216,6 @@
     "line": 1,
     "name": "Login And Register Page",
     "tags": [],
-    "uri": "C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/customerApp/login.feature"
+    "uri": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\customerApp\\login.feature"
   }
 ]

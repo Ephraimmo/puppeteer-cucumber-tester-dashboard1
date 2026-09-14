@@ -223,8 +223,30 @@ module.exports = {
     },
 
     finish: function (succeeded) {
-        state.status = succeeded ? 'passed' : 'failed';
+        var finalFailed = false;
+        state.scenarios.forEach(function (scenario) {
+            if (scenario.status === 'running' || scenario.status === 'queued') {
+                var scenarioHasFail = (scenario.steps || []).some(function (st) {
+                    return st.status === 'failed';
+                });
+                scenario.steps.forEach(function (step) {
+                    if (step.status === 'running') {
+                        step.status = scenarioHasFail ? 'failed' : (succeeded ? 'passed' : 'failed');
+                        step.finishedAt = step.finishedAt || new Date().toISOString();
+                        step.duration = step.startedAt ? new Date(step.finishedAt).getTime() - new Date(step.startedAt).getTime() : 0;
+                    }
+                });
+                scenario.status = scenarioHasFail ? 'failed' : (scenario.status === 'queued' ? 'queued' : (succeeded ? 'passed' : 'failed'));
+                scenario.finishedAt = scenario.finishedAt || new Date().toISOString();
+                scenario.duration = scenario.startedAt ? new Date(scenario.finishedAt).getTime() - new Date(scenario.startedAt).getTime() : 0;
+                if (scenario.status === 'failed') finalFailed = true;
+            } else if (scenario.status === 'failed') {
+                finalFailed = true;
+            }
+        });
+        state.status = succeeded && !finalFailed ? 'passed' : 'failed';
         state.current = null;
+        state.currentStep = null;
         state.updatedAt = new Date().toISOString();
         refreshCounts();
         writeState();

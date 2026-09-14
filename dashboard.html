@@ -24,8 +24,18 @@
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
     <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.086a1.5 1.5 0 0 1 1.06.44L11 6.79a1.5 1.5 0 0 0 1.06.44H19.5A1.5 1.5 0 0 1 21 8.73V17.5A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5Z"/></symbol>
+    <symbol id="i-folder-plus" viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.086a1.5 1.5 0 0 1 1.06.44L11 6.79a1.5 1.5 0 0 0 1.06.44H19.5A1.5 1.5 0 0 1 21 8.73V17.5A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5Z"/><path d="M12 10.5v6M9 13.5h6"/></symbol>
+    <symbol id="i-file-plus" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 11v6M9 14h6"/></symbol>
     <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9h18"/><path d="M9 4.5v15M15 4.5v15"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="4" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.2" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.4"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="m21 15-5-5-9.5 9.5"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V6"/><path d="M19 6v13.5A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5V6"/><path d="M10 11v6"/><path d="M14 11v6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m9 8-4.5 4L9 16"/><path d="m15 8 4.5 4L15 16"/></symbol>
   </defs>
 </svg>
 
@@ -50,6 +60,9 @@
       <button class="tab" data-view="studio">
         <svg class="icon"><use href="#i-edit"/></svg><span>Feature Studio</span>
       </button>
+      <button class="tab" data-view="stepdefs">
+        <svg class="icon"><use href="#i-code"/></svg><span>Step Definitions</span>
+      </button>
     </nav>
 
     <div class="header-meta">
@@ -65,6 +78,11 @@
         <option value="">All feature files</option>
       </select>
 
+      <label class="field-label" for="tag-select">Tag filter</label>
+      <select id="tag-select" class="select" title="Choose a tag to run (leave empty to run all scenarios)">
+        <option value="">No tag filter</option>
+      </select>
+
       <label class="field-label" for="browser-mode">Browser</label>
       <div class="seg" id="browser-mode" role="tablist" aria-label="Browser mode">
         <button class="seg-btn active" data-mode="headless" role="tab" aria-selected="true">Headless</button>
@@ -75,8 +93,9 @@
 
     <div class="runbar-actions">
       <span class="status-pill idle" id="status-badge"><span class="dot"></span><span id="status-text">IDLE</span></span>
-      <button class="btn btn-primary" id="run-feat"><svg class="icon"><use href="#i-play"/></svg> Run @feat</button>
-      <button class="btn btn-dark" id="run-batch"><svg class="icon"><use href="#i-play"/></svg> Run batch</button>
+      <button class="btn btn-primary" id="run-tag"><svg class="icon"><use href="#i-play"/></svg> Run <span id="run-tag-label">selected</span></button>
+      <button class="btn btn-accent" id="run-feat" data-tag="@feat" title="Quick run with @feat"><svg class="icon"><use href="#i-play"/></svg> Run @feat</button>
+      <button class="btn btn-dark" id="run-batch" data-tag="@batch" title="Quick run with @batch"><svg class="icon"><use href="#i-play"/></svg> Run batch</button>
       <button class="btn btn-stop hidden" id="stop-run"><svg class="icon"><use href="#i-stop"/></svg> Stop run</button>
       <button class="btn btn-icon" id="refresh" title="Refresh now"><svg class="icon"><use href="#i-refresh"/></svg></button>
     </div>
@@ -260,6 +279,13 @@
       </div>
     </div>
 
+    <div class="report-search-bar">
+      <span class="report-search-icon"><svg class="icon"><use href="#i-search"/></svg></span>
+      <input type="text" id="report-search" class="report-search-input" placeholder="Find a feature file, scenario, or step&hellip;" spellcheck="false" autocomplete="off">
+      <button class="icon-btn report-search-clear hidden" id="report-search-clear" title="Clear search"><svg class="icon"><use href="#i-x"/></svg></button>
+    </div>
+    <p class="report-search-summary hidden" id="report-search-summary"></p>
+
     <div class="feature-report" id="feature-report"></div>
   </section>
 
@@ -281,11 +307,15 @@
       <aside class="card studio-files">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Source files</div>
-            <h2>Feature files</h2>
+            <div class="eyebrow">Explorer</div>
+            <h2>features</h2>
+          </div>
+          <div class="tree-toolbar">
+            <button class="tree-toolbar-btn" id="tree-new-file" title="New File..."><svg class="icon"><use href="#i-file-plus"/></svg></button>
+            <button class="tree-toolbar-btn" id="tree-new-folder" title="New Folder..."><svg class="icon"><use href="#i-folder-plus"/></svg></button>
           </div>
         </div>
-        <div class="file-list" id="studio-file-list"></div>
+        <div class="file-tree" id="studio-file-list"></div>
       </aside>
 
       <div class="studio-form">
@@ -294,17 +324,145 @@
             <label>File path<input id="studio-uri" placeholder="features/example.feature" spellcheck="false"></label>
             <label>Feature name<input id="studio-name" placeholder="Feature name"></label>
           </div>
-          <label>Tags<input id="studio-tags" placeholder="@team @smoke" spellcheck="false"></label>
+          <label>Tags<div id="studio-tags-host"></div></label>
           <label>Description<textarea id="studio-description" rows="3" placeholder="What this feature verifies"></textarea></label>
         </div>
 
+        <div id="studio-background"></div>
+
         <div id="studio-scenarios"></div>
 
-        <button class="btn btn-ghost add-scenario" id="add-scenario"><svg class="icon"><use href="#i-plus"/></svg> Add scenario</button>
+        <div class="studio-add-row">
+          <button class="btn btn-ghost add-scenario" id="add-scenario"><svg class="icon"><use href="#i-plus"/></svg> Add scenario</button>
+          <button class="btn btn-accent" id="record-scenario"><svg class="icon"><use href="#i-list"/></svg> Record scenario from browser</button>
+        </div>
         <p class="studio-message" id="studio-message"></p>
       </div>
     </div>
   </section>
+
+  <!-- ===================== STEP DEFINITIONS ===================== -->
+  <section class="view hidden" id="view-stepdefs">
+    <div class="studio-header">
+      <div>
+        <div class="eyebrow accent">Automation library</div>
+        <h2>Step definitions</h2>
+        <p class="report-sub">Write a new reusable step once, then call it from any feature file.</p>
+      </div>
+      <div class="studio-actions">
+        <button class="btn btn-ghost hidden" id="cancel-stepdef-edit" type="button"><svg class="icon"><use href="#i-x"/></svg> Cancel edit</button>
+        <button class="btn btn-primary" id="create-stepdef"><svg class="icon"><use href="#i-check"/></svg> Create step definition</button>
+      </div>
+    </div>
+
+    <div class="studio-layout">
+      <aside class="card studio-files">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Explorer</div>
+            <h2>step-definitions</h2>
+          </div>
+        </div>
+        <p class="stepdef-explorer-hint">Select a file to see its steps in full.</p>
+        <div class="stepdef-file-list" id="stepdef-file-list"></div>
+      </aside>
+
+      <div class="studio-form">
+        <div class="card stepdef-detail-panel hidden" id="stepdef-detail-panel">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">File contents</div>
+              <h2 id="stepdef-detail-filename">—</h2>
+            </div>
+            <span class="stepdef-detail-hint">Click a step below to edit it</span>
+          </div>
+          <div class="stepdef-detail-list" id="stepdef-detail-list"></div>
+        </div>
+
+        <p class="stepdef-edit-banner hidden" id="stepdef-edit-banner"></p>
+        <div class="card form-panel">
+          <label>Step type
+            <div class="seg" id="stepdef-keyword" role="tablist" aria-label="Step keyword">
+              <button class="seg-btn active" data-keyword="Given" role="tab" aria-selected="true">Given</button>
+              <button class="seg-btn" data-keyword="When" role="tab" aria-selected="false">When</button>
+              <button class="seg-btn" data-keyword="Then" role="tab" aria-selected="false">Then</button>
+            </div>
+          </label>
+
+          <div class="stepdef-file-row">
+            <label>Target file
+              <select id="stepdef-file-select" class="select stepdef-select"></select>
+            </label>
+            <label id="stepdef-new-file-row" class="hidden">New file name
+              <input id="stepdef-new-file" placeholder="my-feature-steps.js" spellcheck="false" autocomplete="off">
+            </label>
+          </div>
+
+          <label>Step text
+            <div class="stepdef-template-row">
+              <input id="stepdef-template" placeholder='I click the "..." button' spellcheck="false" autocomplete="off">
+              <button class="btn btn-ghost" id="stepdef-insert-placeholder" type="button" title='Insert a "..." placeholder at the cursor'><svg class="icon"><use href="#i-plus"/></svg> Placeholder</button>
+            </div>
+            <p class="stepdef-hint">Wrap any value that changes each run in <code>"..."</code> — e.g. <code>I enter "..." into the "..." field</code>.</p>
+          </label>
+
+          <div class="stepdef-preview" id="stepdef-preview-wrap">
+            <span class="stepdef-preview-label">Compiles to</span>
+            <code class="stepdef-preview-pattern" id="stepdef-pattern-preview">—</code>
+          </div>
+
+          <label>Implementation
+            <div class="stepdef-code-editor">
+              <pre class="stepdef-code-editor-highlight" id="stepdef-body-highlight" aria-hidden="true"><code></code></pre>
+              <textarea id="stepdef-body" class="stepdef-code-editor-input" rows="6" spellcheck="false" placeholder="await page.click('button');&#10;&#10;Leave blank to add a // TODO stub you can fill in later."></textarea>
+              <div class="stepdef-autocomplete hidden" id="stepdef-autocomplete"></div>
+            </div>
+          </label>
+        </div>
+        <p class="studio-message" id="stepdef-message"></p>
+      </div>
+    </div>
+  </section>
+
+  <datalist id="step-suggestions"></datalist>
+
+  <div class="record-overlay hidden" id="record-overlay">
+    <div class="record-dialog">
+      <div class="record-dialog-head">
+        <h3 id="record-title">Record a scenario</h3>
+        <button class="icon-btn" id="record-close" title="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+      </div>
+
+      <div id="record-step-url">
+        <p class="record-hint">Enter the page you want to test. A real browser window will open — browse it and click, then every click and field you fill in becomes a step automatically.</p>
+        <label>Website URL<input id="record-url" placeholder="https://example.com" spellcheck="false"></label>
+        <p class="record-error" id="record-error"></p>
+        <div class="record-actions">
+          <button class="btn btn-ghost" id="record-cancel-url">Cancel</button>
+          <button class="btn btn-primary" id="record-start">Open browser &amp; start recording</button>
+        </div>
+      </div>
+
+      <div id="record-step-live" class="hidden">
+        <div class="record-live-status">
+          <span class="record-dot"></span>
+          <span id="record-status-text">Recording — interact with the browser window that opened.</span>
+        </div>
+        <div class="record-steps-list" id="record-steps-list"></div>
+        <div class="record-actions">
+          <button class="btn btn-ghost danger" id="record-discard">Discard</button>
+          <button class="btn btn-primary" id="record-finish">Finish &amp; create scenario</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox-overlay hidden" id="lightbox-overlay">
+    <div class="lightbox-dialog">
+      <button class="icon-btn lightbox-close" id="lightbox-close" title="Close"><svg class="icon"><use href="#i-x"/></svg></button>
+      <img class="lightbox-image" id="lightbox-image" alt="Step screenshot">
+    </div>
+  </div>
 
 </main>
 

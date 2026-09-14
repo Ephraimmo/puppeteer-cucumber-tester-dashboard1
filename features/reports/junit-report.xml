@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="login-and-register-page;user-attempts-to-register---form-is-available" tests="12" failures="0" skipped="0">
+    <testsuite name="login-and-register-page;recorded-scenario" tests="14" failures="0" skipped="0">
         <properties>
             <property name="@feat" value="true">
             </property>
-            <property name="URI" value="C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/customerApp/login.feature">
+            <property name="URI" value="C:\Users\karabomo\Downloads\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\puppeteer-cucumber-tester-dashboard\features\customerApp\login.feature">
             </property>
         </properties>
-        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="4.5373518">
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app&quot;" classname="login-and-register-page;recorded-scenario" time="2.5258811">
         </testcase>
-        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0470361">
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;recorded-scenario" time="0.0208437">
         </testcase>
-        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.1725747">
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;recorded-scenario" time="1.0420923">
         </testcase>
-        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.2627497">
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;recorded-scenario" time="0.025195">
         </testcase>
-        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0372448">
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;recorded-scenario" time="1.0513563">
         </testcase>
-        <testcase name="Then I tab to the &quot;REGISTER&quot; tab" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0251405">
+        <testcase name="And I click on the &quot;DISCOVER&quot; button" classname="login-and-register-page;recorded-scenario" time="0.0262946">
         </testcase>
-        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0379087">
+        <testcase name="And I click on card that contains text &quot;Hearth Grill &amp; Smokehouse&quot;" classname="login-and-register-page;recorded-scenario" time="0.0761373">
         </testcase>
-        <testcase name="Then I should see the &quot;Full Name *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0171013">
+        <testcase name="And I click on card that contains text &quot;Aged Beef Double Smash Burger&quot;" classname="login-and-register-page;recorded-scenario" time="0.1443946">
         </testcase>
-        <testcase name="And I should see the &quot;Email *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0207771">
+        <testcase name="Given I was for ajax to complete" classname="login-and-register-page;recorded-scenario" time="1.0332228">
         </testcase>
-        <testcase name="And I should see the &quot;Phone (optional)&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0317975">
+        <testcase name="And I click on card that contains text &quot;ADD TO CART&quot;" classname="login-and-register-page;recorded-scenario" time="0.0551912">
         </testcase>
-        <testcase name="And I should see the &quot;Password *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0368298">
+        <testcase name="Given I was for ajax to complete" classname="login-and-register-page;recorded-scenario" time="1.0325613">
         </testcase>
-        <testcase name="And I should see the &quot;CREATE ACCOUNT&quot; message" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.1162107">
+        <testcase name="And I click on card that contains text &quot;VIEW CART&quot;" classname="login-and-register-page;recorded-scenario" time="0.0611168">
+        </testcase>
+        <testcase name="And I click on card that contains text &quot;SIGN IN &amp; CHECKOUT&quot;" classname="login-and-register-page;recorded-scenario" time="0.0637796">
+        </testcase>
+        <testcase name="Then I should see the &quot;Delivery Address Required&quot; message" classname="login-and-register-page;recorded-scenario" time="0.0400672">
         </testcase>
     </testsuite>
 </testsuites>

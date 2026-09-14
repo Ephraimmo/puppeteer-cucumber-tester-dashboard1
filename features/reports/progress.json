@@ -1,120 +1,136 @@
 {
-  "runId": "2026-08-22T05:27:51.130Z",
-  "status": "failed",
-  "startedAt": "2026-08-22T05:27:51.139Z",
-  "updatedAt": "2026-08-22T05:28:08.708Z",
+  "runId": "2026-09-14T06:11:38.274Z",
+  "status": "passed",
+  "startedAt": "2026-09-14T06:11:38.280Z",
+  "updatedAt": "2026-09-14T06:11:48.640Z",
   "current": null,
   "scenarios": [
     {
-      "name": "User attempts to Register - form is available",
-      "featureFile": "C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/customerApp/login.feature",
+      "name": "Recorded scenario",
+      "featureFile": "C:\\Users\\karabomo\\Downloads\\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\\puppeteer-cucumber-tester-dashboard\\features\\customerApp\\login.feature",
       "status": "passed",
-      "startedAt": "2026-08-22T05:27:52.077Z",
-      "finishedAt": "2026-08-22T05:28:08.308Z",
-      "duration": 16231,
+      "startedAt": "2026-09-14T06:11:38.416Z",
+      "finishedAt": "2026-09-14T06:11:48.517Z",
+      "duration": 10101,
       "steps": [
         {
           "keyword": "When ",
-          "name": "I am online at \"https://customerapp-neon.vercel.app/\"",
+          "name": "I am online at \"https://customerapp-neon.vercel.app\"",
           "status": "passed",
-          "startedAt": "2026-08-22T05:27:59.457Z",
-          "duration": 4561,
-          "finishedAt": "2026-08-22T05:28:04.018Z"
+          "startedAt": "2026-09-14T06:11:41.073Z",
+          "duration": 2572,
+          "finishedAt": "2026-09-14T06:11:43.645Z"
         },
         {
           "keyword": "And ",
           "name": "I click on the \"ACCOUNT\" button",
           "status": "passed",
-          "startedAt": "2026-08-22T05:28:04.026Z",
-          "duration": 63,
-          "finishedAt": "2026-08-22T05:28:04.089Z"
+          "startedAt": "2026-09-14T06:11:43.649Z",
+          "duration": 28,
+          "finishedAt": "2026-09-14T06:11:43.677Z"
         },
         {
           "keyword": "And ",
           "name": "I wait for ajax to complete",
           "status": "passed",
-          "startedAt": "2026-08-22T05:28:04.119Z",
-          "duration": 1203,
-          "finishedAt": "2026-08-22T05:28:05.322Z"
+          "startedAt": "2026-09-14T06:11:43.687Z",
+          "duration": 1058,
+          "finishedAt": "2026-09-14T06:11:44.745Z"
         },
         {
           "keyword": "And ",
           "name": "I click on the \"SIGN IN\" button",
           "status": "passed",
-          "startedAt": "2026-08-22T05:28:05.334Z",
-          "duration": 273,
-          "finishedAt": "2026-08-22T05:28:05.607Z"
+          "startedAt": "2026-09-14T06:11:44.750Z",
+          "duration": 30,
+          "finishedAt": "2026-09-14T06:11:44.780Z"
         },
         {
           "keyword": "And ",
           "name": "I wait for ajax to complete",
           "status": "passed",
-          "startedAt": "2026-08-22T05:28:05.615Z",
-          "duration": 1047,
-          "finishedAt": "2026-08-22T05:28:06.662Z"
+          "startedAt": "2026-09-14T06:11:44.792Z",
+          "duration": 1057,
+          "finishedAt": "2026-09-14T06:11:45.849Z"
+        },
+        {
+          "keyword": "And ",
+          "name": "I click on the \"DISCOVER\" button",
+          "status": "passed",
+          "startedAt": "2026-09-14T06:11:45.853Z",
+          "duration": 30,
+          "finishedAt": "2026-09-14T06:11:45.883Z"
+        },
+        {
+          "keyword": "And ",
+          "name": "I click on card that contains text \"Hearth Grill & Smokehouse\"",
+          "status": "passed",
+          "startedAt": "2026-09-14T06:11:45.890Z",
+          "duration": 83,
+          "finishedAt": "2026-09-14T06:11:45.973Z"
+        },
+        {
+          "keyword": "And ",
+          "name": "I click on card that contains text \"Aged Beef Double Smash Burger\"",
+          "status": "passed",
+          "startedAt": "2026-09-14T06:11:45.978Z",
+          "duration": 160,
+          "finishedAt": "2026-09-14T06:11:46.138Z"
+        },
+        {
+          "keyword": "Given ",
+          "name": "I was for ajax to complete",
+          "status": "passed",
+          "startedAt": "2026-09-14T06:11:46.149Z",
+          "duration": 1039,
+          "finishedAt": "2026-09-14T06:11:47.188Z"
+        },
+        {
+          "keyword": "And ",
+          "name": "I click on card that contains text \"ADD TO CART\"",
+          "status": "passed",
+          "startedAt": "2026-09-14T06:11:47.194Z",
+          "duration": 60,
+          "finishedAt": "2026-09-14T06:11:47.254Z"
+        },
+        {
+          "keyword": "Given ",
+          "name": "I was for ajax to complete",
+          "status": "passed",
+          "startedAt": "2026-09-14T06:11:47.258Z",
+          "duration": 1038,
+          "finishedAt": "2026-09-14T06:11:48.296Z"
+        },
+        {
+          "keyword": "And ",
+          "name": "I click on card that contains text \"VIEW CART\"",
+          "status": "passed",
+          "startedAt": "2026-09-14T06:11:48.302Z",
+          "duration": 66,
+          "finishedAt": "2026-09-14T06:11:48.368Z"
+        },
+        {
+          "keyword": "And ",
+          "name": "I click on card that contains text \"SIGN IN & CHECKOUT\"",
+          "status": "passed",
+          "startedAt": "2026-09-14T06:11:48.374Z",
+          "duration": 71,
+          "finishedAt": "2026-09-14T06:11:48.445Z"
         },
         {
           "keyword": "Then ",
-          "name": "I tab to the \"REGISTER\" tab",
+          "name": "I should see the \"Delivery Address Required\" message",
           "status": "passed",
-          "startedAt": "2026-08-22T05:28:06.672Z",
-          "duration": 37,
-          "finishedAt": "2026-08-22T05:28:06.709Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I wait for ajax to complete",
-          "status": "passed",
-          "startedAt": "2026-08-22T05:28:06.724Z",
-          "duration": 1055,
-          "finishedAt": "2026-08-22T05:28:07.779Z"
-        },
-        {
-          "keyword": "Then ",
-          "name": "I should see the \"Full Name *\" field",
-          "status": "passed",
-          "startedAt": "2026-08-22T05:28:07.791Z",
-          "duration": 33,
-          "finishedAt": "2026-08-22T05:28:07.824Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I should see the \"Email *\" field",
-          "status": "passed",
-          "startedAt": "2026-08-22T05:28:07.844Z",
-          "duration": 42,
-          "finishedAt": "2026-08-22T05:28:07.886Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I should see the \"Phone (optional)\" field",
-          "status": "passed",
-          "startedAt": "2026-08-22T05:28:07.900Z",
-          "duration": 49,
-          "finishedAt": "2026-08-22T05:28:07.949Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I should see the \"Password *\" field",
-          "status": "passed",
-          "startedAt": "2026-08-22T05:28:07.969Z",
-          "duration": 57,
-          "finishedAt": "2026-08-22T05:28:08.026Z"
-        },
-        {
-          "keyword": "And ",
-          "name": "I should see the \"CREATE ACCOUNT\" message",
-          "status": "passed",
-          "startedAt": "2026-08-22T05:28:08.053Z",
-          "duration": 233,
-          "finishedAt": "2026-08-22T05:28:08.286Z"
+          "startedAt": "2026-09-14T06:11:48.449Z",
+          "duration": 46,
+          "finishedAt": "2026-09-14T06:11:48.495Z"
         },
         {
           "keyword": "After ",
           "status": "passed",
-          "startedAt": "2026-08-22T05:28:08.293Z",
+          "startedAt": "2026-09-14T06:11:48.503Z",
           "duration": 7,
-          "finishedAt": "2026-08-22T05:28:08.300Z"
+          "finishedAt": "2026-09-14T06:11:48.510Z"
         }
       ]
     }

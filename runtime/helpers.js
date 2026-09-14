@@ -55,8 +55,14 @@ module.exports = {
         // use either passed in timeout or global default
         var timeout = (waitInSeconds) ? (waitInSeconds * 1000) : DEFAULT_TIMEOUT;
 
-        // load the url and wait for all requests to end
-        return page.goto(url, { timeout: timeout, waitUntil: 'networkidle0' });
+        // Load the url and wait for the initial HTML document to be parsed.
+        // NOTE: we deliberately don't use 'networkidle0'/'networkidle2' here — modern
+        // sites (analytics beacons, live chat widgets, polling, websockets) often keep
+        // at least one connection open forever, so "wait for zero/near-zero network
+        // activity" can hang for the full timeout even though the page is fully usable.
+        // Steps that need the page settled further (e.g. "I wait for ajax to complete")
+        // do their own explicit readiness check right before they need it.
+        return page.goto(url, { timeout: timeout, waitUntil: 'domcontentloaded' });
     },
 
     /**
@@ -82,9 +88,11 @@ module.exports = {
          */
         if (page === undefined) {
             page = await browser.newPage();
+            // See loadPage() above for why 'domcontentloaded' (not 'networkidle0'/'networkidle2')
+            // is used: real-world sites frequently never go fully network-idle.
             await page.goto(url, {
                 timeout: DEFAULT_TIMEOUT,
-                waitUntil: 'networkidle0',
+                waitUntil: 'domcontentloaded',
                 ...options
             });
         }

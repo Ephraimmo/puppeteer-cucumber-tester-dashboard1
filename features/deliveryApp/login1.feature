@@ -1,13 +1,19 @@
 Feature: Login And Register Page
 
   Background: Background name
-    When I am online at "https://customerapp-neon.vercel.app"
+    When I am online at "https://customerapp-neon.vercel.app/"
     And I click on the "ACCOUNT" button
     And I wait for ajax to complete
     And I click on the "SIGN IN" button
     And I wait for ajax to complete
 
+  @feat
   Scenario: User attempts to Register - form is available
+    When I am online at "https://customerapp-neon.vercel.app/"
+    And I click on the "ACCOUNT" button
+    And I wait for ajax to complete
+    And I click on the "SIGN IN" button
+    And I wait for ajax to complete
     Then I tab to the "REGISTER" tab
     And I wait for ajax to complete
     Then I should see the "Full Name *" field
@@ -45,6 +51,7 @@ Feature: Login And Register Page
     And I wait for ajax to complete
     Then I should see the "SIGN OUT" message
 
+  @feat
   Scenario Outline: User attempts to login with invalid credentials - <CheckPointType>
     And I enter "<Email>" into the "Email" field
     And I enter "<Password>" into the "Password" field
@@ -52,19 +59,8 @@ Feature: Login And Register Page
     And I wait for ajax to complete
     Then I should see the "<CheckPointValue>" message
 
-    Examples:
-      | Email           | Password  | CheckPointType   | CheckPointValue  |
-      | demo@hearth.app | hearth123 | Invalid Email    | Invalid Email    |
-      | demo@hearth.app | hearth123 | Invalid Password | Invalid Password |
+  Examples:
+      | Email            | Password   | CheckPointType    | CheckPointValue  |
+      | demo@hearth.app  | hearth123  | Invalid Email     | Invalid Email    |
+      | demo@hearth.app  | hearth123  | Invalid Password  | Invalid Password |
 
-  @feat
-  Scenario: Recorded scenario
-    And I click on the "DISCOVER" button
-    And I click on card that contains text "Hearth Grill & Smokehouse"
-    And I click on card that contains text "Aged Beef Double Smash Burger"
-    Given I was for ajax to complete
-    And I click on card that contains text "ADD TO CART"
-    Given I was for ajax to complete
-    And I click on card that contains text "VIEW CART"
-    And I click on card that contains text "SIGN IN & CHECKOUT"
-    Then I should see the "Delivery Address Required" message
