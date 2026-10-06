@@ -13,6 +13,7 @@ var cucumberJunit = require('cucumber-junit');
 var edgePaths = require('edge-paths');
 var networkSpeeds = require('../runtime/network-speed.js');
 var progress = require('../runtime/progress.js');
+var liveView = require('../runtime/live-view.js');
 
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
@@ -187,6 +188,9 @@ module.exports = async function () {
                 await page.setUserAgent(userAgent);
             }
         }
+
+        // stream the page under test to the dashboard's live browser panel (no-op outside the dashboard)
+        liveView.follow();
     });
 
     this.registerHandler('BeforeStep', function (step) {

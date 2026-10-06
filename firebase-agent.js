@@ -26,6 +26,7 @@ var LOCAL_PORT = process.env.PORT || 4173;
 var LOCAL_BASE = 'http://localhost:' + LOCAL_PORT;
 var MIRROR_INTERVAL_MS = 1200;
 var RECORDING_POLL_MS = 400;
+var LIVE_POLL_MS = 250;
 
 // Starts the local HTTP server (file I/O, the cucumber runner, puppeteer recording) in
 // this same process — see the file header above for why nothing about it needs to change.
@@ -62,6 +63,10 @@ var activeRecordingSessionId = null;
 var recordingSince = 0;
 var recordingEventsAccum = [];
 var recordingPollTimer = null;
+var liveViewerCount = 0;
+var liveLoopRunning = false;
+var liveLastAt = 0;
+var liveWasActive = false;
 
 function httpRequest(method, urlPath, bodyObj) {
     var options = { method: method, headers: {} };
@@ -153,6 +158,52 @@ function startRecordingPoll() {
     }, RECORDING_POLL_MS);
 }
 
+// Live browser view: frames are big (tens of KB each), so they're only uploaded while at
+// least one dashboard is watching — each one registers itself under live/viewers and is
+// removed by Firebase when that browser tab closes or disconnects.
+function liveTick() {
+    if (liveViewerCount === 0) { liveLoopRunning = false; return; }
+    liveLoopRunning = true;
+    httpRequest('GET', '/api/live?since=' + liveLastAt)
+        .then(function (r) {
+            if (!r.ok || !r.body) return;
+            var live = r.body;
+            if (live.data) {
+                liveLastAt = live.at;
+                liveWasActive = true;
+                return db.ref('agents/' + AGENT_ID + '/live/frame').set({ data: live.data, url: live.url || '', at: live.at });
+            }
+            if (!live.active && liveWasActive) {
+                liveWasActive = false;
+                liveLastAt = 0;
+                return db.ref('agents/' + AGENT_ID + '/live/frame').remove();
+            }
+        })
+        .catch(function () { /* transient — next tick retries */ })
+        .then(function () { setTimeout(liveTick, LIVE_POLL_MS); });
+}
+
+function watchLiveViewers() {
+    var liveRef = db.ref('agents/' + AGENT_ID + '/live');
+    // start clean: a frame left over from a previous agent session would look like a live run
+    liveRef.child('frame').remove();
+    liveRef.child('viewers').on('value', function (snapshot) {
+        var wasWatched = liveViewerCount > 0;
+        liveViewerCount = snapshot.numChildren();
+        if (liveViewerCount > 0 && !wasWatched) {
+            // re-send the current frame to a viewer who just arrived
+            liveLastAt = 0;
+            if (!liveLoopRunning) liveTick();
+        }
+        if (liveViewerCount === 0 && wasWatched) {
+            // the loop stops itself on its next tick
+            liveWasActive = false;
+            liveLastAt = 0;
+            liveRef.child('frame').remove();
+        }
+    });
+}
+
 // Translates one queued command into the equivalent local HTTP call(s) — the exact same
 // requests the browser dashboard used to make directly against dashboard-server.js.
 function dispatchCommand(type, payload) {
@@ -229,6 +280,7 @@ firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.passwo
     })
     .then(function () {
         listenForCommands();
+        watchLiveViewers();
         runMirrorTick();
         setInterval(runMirrorTick, MIRROR_INTERVAL_MS);
         setInterval(function () { db.ref('agents/' + AGENT_ID + '/status/lastSeen').set(Date.now()); }, 5000);

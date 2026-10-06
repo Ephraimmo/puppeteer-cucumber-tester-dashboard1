@@ -14,6 +14,7 @@ var activeRun = { status: 'idle', tag: null, requestedTag: null, startedAt: null
 var stopRequested = false;
 var runnerProcess = null;
 var recordSessions = {};
+var liveFrame = null; // latest test-browser frame from runtime/live-view.js, served by /api/live
 
 function featureFiles(directory) {
     return fs.readdirSync(directory, { withFileTypes: true }).reduce(function (files, entry) {
@@ -907,15 +908,23 @@ function startRun(requestedTag, featureFile, headless, response) {
     // windowsHide only for headless runs — a headed run must be able to show the browser window
     var runnerLogPath = path.join(reports, 'runner-last-run.log');
     var runnerLog = fs.createWriteStream(runnerLogPath);
-    var runner = childProcess.spawn(process.execPath, runnerArgs, { cwd: root, windowsHide: headless, stdio: ['ignore', 'pipe', 'pipe'], detached: process.platform !== 'win32' });
+    // the 'ipc' channel carries live-view frames of the test browser (see runtime/live-view.js)
+    var runner = childProcess.spawn(process.execPath, runnerArgs, { cwd: root, windowsHide: headless, stdio: ['ignore', 'pipe', 'pipe', 'ipc'], detached: process.platform !== 'win32' });
     runner.stdout.pipe(runnerLog, { end: false });
     runner.stderr.pipe(runnerLog, { end: false });
+    liveFrame = null;
+    runner.on('message', function (message) {
+        if (message && message.type === 'liveFrame') {
+            liveFrame = { data: message.data, url: message.url, at: Date.now() };
+        }
+    });
     activeRun.logFile = 'features/reports/runner-last-run.log';
     runnerProcess = runner;
     activeRun.pid = runner.pid;
     activeRun.headless = headless;
     runner.on('close', function (code) {
         runnerLog.end();
+        liveFrame = null;
         if (stopRequested) {
             stopRequested = false;
             runnerProcess = null;
@@ -1434,6 +1443,17 @@ http.createServer(function (request, response) {
     if (requestPath === '/api/env') {
         response.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
         response.end(JSON.stringify({ headlessOnly: !hasDisplay(), platform: process.platform, node: process.version }));
+        return;
+    }
+
+    // Latest live-view frame of the test browser. Pass ?since=<at of the last frame you got>
+    // to receive only { active, at } when nothing has repainted since.
+    if (requestPath === '/api/live' && request.method === 'GET') {
+        var liveSince = Number(new URL(request.url, 'http://localhost').searchParams.get('since') || 0);
+        var liveBody = { active: !!runnerProcess, at: liveFrame ? liveFrame.at : 0 };
+        if (liveFrame && liveFrame.at > liveSince) Object.assign(liveBody, liveFrame);
+        response.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
+        response.end(JSON.stringify(liveBody));
         return;
     }
 
