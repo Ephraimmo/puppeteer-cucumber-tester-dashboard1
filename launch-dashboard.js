@@ -1,5 +1,8 @@
 'use strict';
 
+// `npm start` / start.bat: starts the Firebase agent (which runs the tests for the
+// hosted dashboard) and opens that dashboard. The dashboard itself is the separate
+// puppeteer-dashboard-web project; this machine no longer serves a page.
 var fs = require('fs');
 var path = require('path');
 var http = require('http');
@@ -7,10 +10,11 @@ var childProcess = require('child_process');
 
 var root = __dirname;
 var port = process.env.PORT || 4173;
-var dashboardUrl = 'http://localhost:' + port;
+var localApiUrl = 'http://localhost:' + port;
+var dashboardUrl = require('./firebase-agent-config').DASHBOARD_URL;
 
-function pingDashboard(callback) {
-    var req = http.get(dashboardUrl + '/api/env', function (res) {
+function pingAgent(callback) {
+    var req = http.get(localApiUrl + '/api/env', function (res) {
         res.resume();
         callback(res.statusCode === 200);
     });
@@ -35,6 +39,14 @@ function openBrowser(url) {
     }
 }
 
+function openDashboard() {
+    if (!dashboardUrl) {
+        console.log('  Set DASHBOARD_URL in firebase-agent-config.js to your Vercel URL to have it opened automatically.');
+        return;
+    }
+    openBrowser(dashboardUrl);
+}
+
 function ensureDependencies() {
     if (fs.existsSync(path.join(root, 'node_modules'))) {
         return;
@@ -43,18 +55,18 @@ function ensureDependencies() {
     childProcess.execSync('npm install', { cwd: root, stdio: 'inherit', env: process.env });
 }
 
-function startDashboard() {
+function startAgent() {
     console.log('');
-    console.log('  Scenario Test Dashboard');
-    console.log('  -----------------------');
-    console.log('  Dashboard: ' + dashboardUrl);
+    console.log('  Scenario Test Agent');
+    console.log('  -------------------');
+    console.log('  Dashboard: ' + (dashboardUrl || '(not set — see firebase-agent-config.js)'));
     console.log('');
-    console.log('  Keep this window open while testing.');
+    console.log('  Keep this window open while testing — it runs the tests for the dashboard.');
     console.log('  In the browser: select Windowed, then click Run to watch Chrome.');
-    console.log('  Close this window to stop the dashboard.');
+    console.log('  Close this window to stop the agent.');
     console.log('');
 
-    var child = childProcess.spawn(process.execPath, [path.join(root, 'dashboard-server.js'), '--open'], {
+    var child = childProcess.spawn(process.execPath, [path.join(root, 'firebase-agent.js')], {
         cwd: root,
         stdio: 'inherit',
         env: process.env
@@ -62,14 +74,15 @@ function startDashboard() {
     child.on('exit', function (code) {
         process.exit(typeof code === 'number' ? code : 0);
     });
+    openDashboard();
 }
 
 ensureDependencies();
-pingDashboard(function (alreadyRunning) {
+pingAgent(function (alreadyRunning) {
     if (alreadyRunning) {
-        console.log('Dashboard already running — opening ' + dashboardUrl);
-        openBrowser(dashboardUrl);
+        console.log('Agent already running on port ' + port + '.');
+        openDashboard();
         return;
     }
-    startDashboard();
+    startAgent();
 });

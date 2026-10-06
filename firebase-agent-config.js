@@ -19,3 +19,7 @@ module.exports = {
 // FIREBASE_AGENT_ID env var if you ever need a second one; the dashboard's sign-in
 // page lets you pick which agent id to watch.
 module.exports.AGENT_ID = process.env.FIREBASE_AGENT_ID || 'main';
+
+// Where the dashboard (the separate puppeteer-dashboard-web project) is deployed, e.g.
+// 'https://your-project.vercel.app'. `npm start` / start.bat open it once the agent is up.
+module.exports.DASHBOARD_URL = process.env.DASHBOARD_URL || '';

@@ -937,19 +937,6 @@ function startRun(requestedTag, featureFile, headless, response) {
     response.end(JSON.stringify(activeRun));
 }
 
-function sendFile(response, filePath, contentType) {
-    fs.readFile(filePath, function (error, data) {
-        if (error) {
-            response.writeHead(404);
-            response.end('Not found');
-            return;
-        }
-
-        response.writeHead(200, { 'Content-Type': contentType, 'Cache-Control': 'no-store' });
-        response.end(data);
-    });
-}
-
 function sendJson(response, filePath, fallback) {
     fs.readFile(filePath, function (error, data) {
         response.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
@@ -1450,16 +1437,11 @@ http.createServer(function (request, response) {
         return;
     }
 
-    var files = {
-        '/': ['dashboard.html', 'text/html; charset=utf-8'],
-        '/dashboard.html': ['dashboard.html', 'text/html; charset=utf-8'],
-        '/dashboard.css': ['dashboard.css', 'text/css; charset=utf-8'],
-        '/dashboard.js': ['dashboard.js', 'application/javascript; charset=utf-8'],
-        '/firebase-client.js': ['firebase-client.js', 'application/javascript; charset=utf-8']
-    };
-
-    if (files[requestPath]) {
-        sendFile(response, path.join(root, files[requestPath][0]), files[requestPath][1]);
+    // The dashboard UI lives in its own project (puppeteer-dashboard-web, hosted on
+    // Vercel) and reaches this API through firebase-agent.js, so there's no page here.
+    if (requestPath === '/') {
+        response.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+        response.end('This is the test API used by firebase-agent.js. The dashboard is hosted separately; see FIREBASE_SETUP.md.');
         return;
     }
 
@@ -1467,15 +1449,4 @@ http.createServer(function (request, response) {
     response.end('Not found');
 }).listen(port, '0.0.0.0', function () {
     console.log('Scenario progress dashboard listening on port ' + port);
-
-    // --open (or DASHBOARD_OPEN=1) pops the dashboard open in the default browser
-    if (process.argv.indexOf('--open') >= 0 || process.env.DASHBOARD_OPEN === '1') {
-        var url = 'http://localhost:' + port;
-        if (process.platform === 'win32') {
-            childProcess.spawn('cmd', ['/s', '/c', 'start', '""', url], { detached: true, stdio: 'ignore', windowsHide: true }).unref();
-        }
-        else {
-            childProcess.spawn(process.platform === 'darwin' ? 'open' : 'xdg-open', [url], { detached: true, stdio: 'ignore' }).unref();
-        }
-    }
 });

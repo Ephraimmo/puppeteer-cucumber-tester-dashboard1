@@ -5,14 +5,13 @@ The dashboard UI no longer talks to `dashboard-server.js` over HTTP directly. In
 - **`firebase-agent.js`** runs on *your* machine (the one with this project, Chrome, and
   your files). It boots the existing local server internally, signs into Firebase, and
   relays commands/results through the Realtime Database.
-- **`dashboard.html` / `dashboard.js` / `dashboard.css` / `firebase-client.js`** are a
-  plain static site. Open them locally, or deploy them to any static host (Vercel,
-  Netlify, GitHub Pages, a plain S3 bucket, etc.) and open that URL from any computer —
-  it talks to the same agent through Firebase either way.
+- **The dashboard UI** is its own project:
+  [puppeteerCucumberTesterDashboard](https://github.com/Ephraimmo/puppeteerCucumberTesterDashboard),
+  a plain static site hosted on Vercel. Open its URL from any computer; it talks to this
+  agent through Firebase. This project no longer serves a page of its own.
 
-Screenshots embedded in reports are **not** synced remotely (per your choice) — the
-remote dashboard shows pass/fail, error messages, and durations live, but screenshots are
-only visible when you view the dashboard directly on this machine.
+Screenshots embedded in reports are **not** synced through Firebase — the dashboard shows
+pass/fail, error messages, and durations live, but not screenshots.
 
 ## One-time setup (you do this, in the Firebase console)
 
@@ -30,11 +29,14 @@ Project: **rfidproject-e2225** (from the config you gave me).
 
 ## Running it
 
-**On this machine**, instead of `npm run dashboard`, run:
+**On this machine**, run:
 
 ```
 npm run agent
 ```
+
+(`npm start` / `start.bat` do the same, and also open the dashboard once you set
+`DASHBOARD_URL` in `firebase-agent-config.js` to your Vercel URL.)
 
 It needs the sign-in credentials from step 3. Either:
 
@@ -61,24 +63,20 @@ Firebase agent: connected — watching commands/main for work from any dashboard
 
 Leave this running — it's what actually executes everything.
 
-**Opening the dashboard**: open `dashboard.html` (locally, or wherever you deploy the
-four static files) and sign in with the same account from step 3. "Run", "Edit/Save",
-step definitions, and recording all now go through Firebase to whichever machine has
-`npm run agent` running — same behavior whether that's this computer or a different one.
+**Opening the dashboard**: open the Vercel URL of the dashboard project and sign in with
+the same account from step 3. "Run", "Edit/Save", step definitions, and recording all go
+through Firebase to whichever machine has `npm run agent` running. Deploy steps are in
+that project's README.
 
-## What's new in the code
+## What's in the code
 
-- `firebase-agent.js` / `firebase-agent-config.js` — the local bridge process (new).
-- `firebase-client.js` — browser-side Firebase wiring + sign-in gate (new).
-- `database.rules.json` — Realtime Database security rules to paste into the console (new).
-- `dashboard.js` — every `fetch('/api/...')` call now goes through `FB.fetch(...)`
-  (same call signature, same response shape) instead of hitting `localhost` directly.
-- `dashboard.html` / `dashboard.css` — added the sign-in overlay and the Firebase SDK
-  script tags.
-- `dashboard-server.js` — **unchanged except** one line registering `firebase-client.js`
-  as a servable static file for local convenience. All of its actual logic (file I/O,
-  running cucumber, Puppeteer recording) is untouched — the agent just calls its HTTP
-  API exactly like the browser used to.
+- `firebase-agent.js` / `firebase-agent-config.js` — the local bridge process.
+- `database.rules.json` — Realtime Database security rules to paste into the console.
+- `dashboard-server.js` — the HTTP API that does the real work (file I/O, running
+  cucumber, Puppeteer recording). The agent calls it exactly like the browser used to;
+  it no longer serves the dashboard page itself.
+- `launch-dashboard.js` (`npm start`, `start.bat`) — starts the agent and opens
+  `DASHBOARD_URL`.
 
 ## Current limits worth knowing about
 
