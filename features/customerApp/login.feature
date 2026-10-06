@@ -57,7 +57,6 @@ Feature: Login And Register Page
       | demo@hearth.app | hearth123 | Invalid Email    | Invalid Email    |
       | demo@hearth.app | hearth123 | Invalid Password | Invalid Password |
 
-  @feat
   Scenario: Recorded scenario
     And I click on the "DISCOVER" button
     And I click on card that contains text "Hearth Grill & Smokehouse"

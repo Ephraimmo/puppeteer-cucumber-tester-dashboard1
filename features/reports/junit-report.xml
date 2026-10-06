@@ -1,39 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="login-and-register-page;recorded-scenario" tests="14" failures="0" skipped="0">
+    <testsuite name="login-and-register-page;user-attempts-to-register---form-is-available" tests="12" failures="0" skipped="0">
         <properties>
             <property name="@feat" value="true">
             </property>
-            <property name="URI" value="C:\Users\karabomo\Downloads\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\puppeteer-cucumber-tester-dashboard\features\customerApp\login.feature">
+            <property name="URI" value="C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/customerApp/login.feature">
             </property>
         </properties>
-        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app&quot;" classname="login-and-register-page;recorded-scenario" time="2.5258811">
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app&quot;" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="13.4364486">
         </testcase>
-        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;recorded-scenario" time="0.0208437">
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.1169947">
         </testcase>
-        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;recorded-scenario" time="1.0420923">
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.249111">
         </testcase>
-        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;recorded-scenario" time="0.025195">
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.1381119">
         </testcase>
-        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;recorded-scenario" time="1.0513563">
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.046293">
         </testcase>
-        <testcase name="And I click on the &quot;DISCOVER&quot; button" classname="login-and-register-page;recorded-scenario" time="0.0262946">
+        <testcase name="Then I tab to the &quot;REGISTER&quot; tab" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0626182">
         </testcase>
-        <testcase name="And I click on card that contains text &quot;Hearth Grill &amp; Smokehouse&quot;" classname="login-and-register-page;recorded-scenario" time="0.0761373">
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0523547">
         </testcase>
-        <testcase name="And I click on card that contains text &quot;Aged Beef Double Smash Burger&quot;" classname="login-and-register-page;recorded-scenario" time="0.1443946">
+        <testcase name="Then I should see the &quot;Full Name *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0417">
         </testcase>
-        <testcase name="Given I was for ajax to complete" classname="login-and-register-page;recorded-scenario" time="1.0332228">
+        <testcase name="And I should see the &quot;Email *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0439473">
         </testcase>
-        <testcase name="And I click on card that contains text &quot;ADD TO CART&quot;" classname="login-and-register-page;recorded-scenario" time="0.0551912">
+        <testcase name="And I should see the &quot;Phone (optional)&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0467897">
         </testcase>
-        <testcase name="Given I was for ajax to complete" classname="login-and-register-page;recorded-scenario" time="1.0325613">
+        <testcase name="And I should see the &quot;Password *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0656024">
         </testcase>
-        <testcase name="And I click on card that contains text &quot;VIEW CART&quot;" classname="login-and-register-page;recorded-scenario" time="0.0611168">
+        <testcase name="And I should see the &quot;CREATE ACCOUNT&quot; message" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.037758">
         </testcase>
-        <testcase name="And I click on card that contains text &quot;SIGN IN &amp; CHECKOUT&quot;" classname="login-and-register-page;recorded-scenario" time="0.0637796">
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-register---form-is-available" tests="17" failures="0" skipped="0">
+        <properties>
+            <property name="@feat" value="true">
+            </property>
+            <property name="URI" value="C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/deliveryApp/login1.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="7.2030118">
         </testcase>
-        <testcase name="Then I should see the &quot;Delivery Address Required&quot; message" classname="login-and-register-page;recorded-scenario" time="0.0400672">
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0131186">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.1223753">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.1804854">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0540696">
+        </testcase>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="2.0784766">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.3300238">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.1288079">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.2048797">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0745311">
+        </testcase>
+        <testcase name="Then I tab to the &quot;REGISTER&quot; tab" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.1065071">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.1355947">
+        </testcase>
+        <testcase name="Then I should see the &quot;Full Name *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0659978">
+        </testcase>
+        <testcase name="And I should see the &quot;Email *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0476397">
+        </testcase>
+        <testcase name="And I should see the &quot;Phone (optional)&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0607996">
+        </testcase>
+        <testcase name="And I should see the &quot;Password *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0444438">
+        </testcase>
+        <testcase name="And I should see the &quot;CREATE ACCOUNT&quot; message" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0556594">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" tests="10" failures="0" skipped="0">
+        <properties>
+            <property name="@feat" value="true">
+            </property>
+            <property name="URI" value="C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/deliveryApp/login1.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="3.1872442">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.0957193">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.0311302">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.0418593">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.0456138">
+        </testcase>
+        <testcase name="And I enter &quot;demo@hearth.app&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.9324972">
+        </testcase>
+        <testcase name="And I enter &quot;hearth123&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.5434523">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.054877">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.0372848">
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid Email&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.0367059">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" tests="10" failures="1" skipped="0">
+        <properties>
+            <property name="@feat" value="true">
+            </property>
+            <property name="URI" value="C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/deliveryApp/login1.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="4.5121773">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="0.1117797">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.1430375">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="0.041698">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.0520313">
+        </testcase>
+        <testcase name="And I enter &quot;demo@hearth.app&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.0571854">
+        </testcase>
+        <testcase name="And I enter &quot;hearth123&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.2608178">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="0.358725">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.1396031">
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid Password&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="50.0237187">
+            <failure message="function timed out after 50000 milliseconds">function timed out after 50000 milliseconds</failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-register---form-is-available" tests="17" failures="0" skipped="0">
+        <properties>
+            <property name="@feat" value="true">
+            </property>
+            <property name="URI" value="C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/restaurantAdminApp/discover copy.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.9042389">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.1333311">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0577326">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0828798">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0561638">
+        </testcase>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.8125969">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.5983435">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.302919">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.2011788">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0570883">
+        </testcase>
+        <testcase name="Then I tab to the &quot;REGISTER&quot; tab" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0744962">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="1.0464938">
+        </testcase>
+        <testcase name="Then I should see the &quot;Full Name *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0321028">
+        </testcase>
+        <testcase name="And I should see the &quot;Email *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.029705">
+        </testcase>
+        <testcase name="And I should see the &quot;Phone (optional)&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0410659">
+        </testcase>
+        <testcase name="And I should see the &quot;Password *&quot; field" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0399831">
+        </testcase>
+        <testcase name="And I should see the &quot;CREATE ACCOUNT&quot; message" classname="login-and-register-page;user-attempts-to-register---form-is-available" time="0.0476831">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" tests="10" failures="0" skipped="0">
+        <properties>
+            <property name="@feat" value="true">
+            </property>
+            <property name="URI" value="C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/restaurantAdminApp/discover copy.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="7.7665945">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.105402">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.3893385">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.1739601">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.1043829">
+        </testcase>
+        <testcase name="And I enter &quot;demo@hearth.app&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="1.3510345">
+        </testcase>
+        <testcase name="And I enter &quot;hearth123&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.8513013">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.0787537">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="2.9037534">
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid Email&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-email" time="0.039587">
+        </testcase>
+    </testsuite>
+    <testsuite name="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" tests="10" failures="1" skipped="0">
+        <properties>
+            <property name="@feat" value="true">
+            </property>
+            <property name="URI" value="C:/Users/karabomo/Downloads/workspace-01a0243d-a260-7624-8384-d96bfe5da2df/puppeteer-cucumber-tester-dashboard/features/restaurantAdminApp/discover copy.feature">
+            </property>
+        </properties>
+        <testcase name="When I am online at &quot;https://customerapp-neon.vercel.app/&quot;" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="4.3580456">
+        </testcase>
+        <testcase name="And I click on the &quot;ACCOUNT&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="0.131176">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.0855366">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="0.0566516">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.0340519">
+        </testcase>
+        <testcase name="And I enter &quot;demo@hearth.app&quot; into the &quot;Email&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.0665412">
+        </testcase>
+        <testcase name="And I enter &quot;hearth123&quot; into the &quot;Password&quot; field" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.2982913">
+        </testcase>
+        <testcase name="And I click on the &quot;SIGN IN&quot; button" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="0.1209316">
+        </testcase>
+        <testcase name="And I wait for ajax to complete" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="1.0614595">
+        </testcase>
+        <testcase name="Then I should see the &quot;Invalid Password&quot; message" classname="login-and-register-page;user-attempts-to-login-with-invalid-credentials---invalid-password" time="50.3653226">
+            <failure message="function timed out after 50000 milliseconds">function timed out after 50000 milliseconds</failure>
         </testcase>
     </testsuite>
 </testsuites>

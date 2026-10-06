@@ -1,25 +1,133 @@
 Feature: Login And Register Page
 
   [36m@feat[39m
-  Scenario: Recorded scenario
-(node:24160) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+  Scenario: User attempts to Register - form is available
+(node:33472) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
 (Use `node --trace-deprecation ...` to show where the warning was created)
   [32m√ When I am online at "https://customerapp-neon.vercel.app"[39m
   [32m√ And I click on the "ACCOUNT" button[39m
   [32m√ And I wait for ajax to complete[39m
   [32m√ And I click on the "SIGN IN" button[39m
   [32m√ And I wait for ajax to complete[39m
-  [32m√ And I click on the "DISCOVER" button[39m
-  [32m√ And I click on card that contains text "Hearth Grill & Smokehouse"[39m
-  [32m√ And I click on card that contains text "Aged Beef Double Smash Burger"[39m
-  [32m√ Given I was for ajax to complete[39m
-  [32m√ And I click on card that contains text "ADD TO CART"[39m
-  [32m√ Given I was for ajax to complete[39m
-  [32m√ And I click on card that contains text "VIEW CART"[39m
-  [32m√ And I click on card that contains text "SIGN IN & CHECKOUT"[39m
-  [32m√ Then I should see the "Delivery Address Required" message[39m
+  [32m√ Then I tab to the "REGISTER" tab[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I should see the "Full Name *" field[39m
+  [32m√ And I should see the "Email *" field[39m
+  [32m√ And I should see the "Phone (optional)" field[39m
+  [32m√ And I should see the "Password *" field[39m
+  [32m√ And I should see the "CREATE ACCOUNT" message[39m
 
-1 scenario ([32m1 passed[39m)
-14 steps ([32m14 passed[39m)
-0m07.199s
+Feature: Login And Register Page
+
+  [36m@feat[39m
+  Scenario: User attempts to Register - form is available
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I tab to the "REGISTER" tab[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I should see the "Full Name *" field[39m
+  [32m√ And I should see the "Email *" field[39m
+  [32m√ And I should see the "Phone (optional)" field[39m
+  [32m√ And I should see the "Password *" field[39m
+  [32m√ And I should see the "CREATE ACCOUNT" message[39m
+
+  [36m@feat[39m
+  Scenario: User attempts to login with invalid credentials - Invalid Email
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I enter "demo@hearth.app" into the "Email" field[39m
+  [32m√ And I enter "hearth123" into the "Password" field[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I should see the "Invalid Email" message[39m
+
+  [36m@feat[39m
+  Scenario: User attempts to login with invalid credentials - Invalid Password
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I enter "demo@hearth.app" into the "Email" field[39m
+  [32m√ And I enter "hearth123" into the "Password" field[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [31m× Then I should see the "Invalid Password" message[39m
+
+Feature: Login And Register Page
+
+  [36m@feat[39m
+  Scenario: User attempts to Register - form is available
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I tab to the "REGISTER" tab[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I should see the "Full Name *" field[39m
+  [32m√ And I should see the "Email *" field[39m
+  [32m√ And I should see the "Phone (optional)" field[39m
+  [32m√ And I should see the "Password *" field[39m
+  [32m√ And I should see the "CREATE ACCOUNT" message[39m
+
+  [36m@feat[39m
+  Scenario: User attempts to login with invalid credentials - Invalid Email
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I enter "demo@hearth.app" into the "Email" field[39m
+  [32m√ And I enter "hearth123" into the "Password" field[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ Then I should see the "Invalid Email" message[39m
+
+  [36m@feat[39m
+  Scenario: User attempts to login with invalid credentials - Invalid Password
+  [32m√ When I am online at "https://customerapp-neon.vercel.app/"[39m
+  [32m√ And I click on the "ACCOUNT" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [32m√ And I enter "demo@hearth.app" into the "Email" field[39m
+  [32m√ And I enter "hearth123" into the "Password" field[39m
+  [32m√ And I click on the "SIGN IN" button[39m
+  [32m√ And I wait for ajax to complete[39m
+  [31m× Then I should see the "Invalid Password" message[39m
+
+Failures:
+
+1) Scenario: [1mUser attempts to login with invalid credentials - Invalid Password[22m - [90mfeatures\deliveryApp\login1.feature:65[39m
+   Step: [1mThen I should see the "Invalid Password" message[22m - [90mfeatures\deliveryApp\login1.feature:60[39m
+   Step Definition: [90mfeatures\step-definitions\login-steps.js:194[39m
+   Message:
+     [31mfunction timed out after 50000 milliseconds[39m
+
+2) Scenario: [1mUser attempts to login with invalid credentials - Invalid Password[22m - [90mfeatures\restaurantAdminApp\discover copy.feature:65[39m
+   Step: [1mThen I should see the "Invalid Password" message[22m - [90mfeatures\restaurantAdminApp\discover copy.feature:60[39m
+   Step Definition: [90mfeatures\step-definitions\login-steps.js:194[39m
+   Message:
+     [31mfunction timed out after 50000 milliseconds[39m
+
+7 scenarios ([31m2 failed[39m, [32m5 passed[39m)
+86 steps ([31m2 failed[39m, [32m84 passed[39m)
+3m08.921s
 Cucumber HTML report C:\Users\karabomo\Downloads\workspace-01a0243d-a260-7624-8384-d96bfe5da2df\puppeteer-cucumber-tester-dashboard\features\reports\-cucumber-report.html generated successfully.

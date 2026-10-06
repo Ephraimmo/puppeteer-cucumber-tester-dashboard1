@@ -931,7 +931,7 @@ function confirmPendingCreate() {
         collapsed['tree:' + folderPath] = false;
         pendingCreate = null;
         updateFileTree();
-        fetch('/api/folder', {
+        FB.fetch('/api/folder', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ path: 'features/' + folderPath })
         })
@@ -980,47 +980,59 @@ function blankStudioFeature() {
 function deleteStudioFile(uri) {
     if (!uri) return;
     var label = fmtFeature(uri);
-    if (!confirmStudioAction('Delete "' + label + '"? This permanently removes the file from disk and cannot be undone.')) return;
-    var wasActive = !!(studioFeature && studioFeature.uri === uri);
-    fetch('/api/feature?file=' + encodeURIComponent(uri), { method: 'DELETE' })
-        .then(function (r) { return r.json().then(function (body) { if (!r.ok) throw new Error(body.message || 'Could not delete the file.'); return body; }); })
-        .then(function () { return fetch('/api/features?ts=' + Date.now()).then(function (r) { return r.json(); }); })
-        .then(function (features) {
-            delete unsavedFiles[uri];
-            state.features = features;
-            toast('Deleted ' + label, 'success');
-            if (wasActive) {
-                var next = features[0];
-                if (next) loadStudioFeature(next.uri); else blankStudioFeature();
-            }
-            updateFileTree();
-            load();
-        })
-        .catch(function (e) { toast(e.message, 'error'); });
+    confirmStudioAction({
+        title: 'Delete feature file?',
+        message: 'Delete "' + label + '"? This permanently removes the file from disk and cannot be undone.',
+        confirmLabel: 'Delete file'
+    }).then(function (ok) {
+        if (!ok) return;
+        var wasActive = !!(studioFeature && studioFeature.uri === uri);
+        FB.fetch('/api/feature?file=' + encodeURIComponent(uri), { method: 'DELETE' })
+            .then(function (r) { return r.json().then(function (body) { if (!r.ok) throw new Error(body.message || 'Could not delete the file.'); return body; }); })
+            .then(function () { return FB.fetch('/api/features?ts=' + Date.now()).then(function (r) { return r.json(); }); })
+            .then(function (features) {
+                delete unsavedFiles[uri];
+                state.features = features;
+                toast('Deleted ' + label, 'success');
+                if (wasActive) {
+                    var next = features[0];
+                    if (next) loadStudioFeature(next.uri); else blankStudioFeature();
+                }
+                updateFileTree();
+                load();
+            })
+            .catch(function (e) { toast(e.message, 'error'); });
+    });
 }
 
 function deleteStudioFolder(folderPath) {
     if (!folderPath) return;
     var label = folderPath.split('/').pop();
-    if (!confirmStudioAction('Delete folder "' + label + '" and everything inside it? This permanently removes it from disk and cannot be undone.')) return;
-    var prefix = 'features/' + folderPath + '/';
-    var wasActiveInside = !!(studioFeature && (studioFeature.uri === 'features/' + folderPath || String(studioFeature.uri || '').indexOf(prefix) === 0));
-    fetch('/api/folder?path=' + encodeURIComponent('features/' + folderPath), { method: 'DELETE' })
-        .then(function (r) { return r.json().then(function (body) { if (!r.ok) throw new Error(body.message || 'Could not delete the folder.'); return body; }); })
-        .then(function () { return fetch('/api/features?ts=' + Date.now()).then(function (r) { return r.json(); }); })
-        .then(function (features) {
-            Object.keys(unsavedFiles).forEach(function (u) { if (u.indexOf(prefix) === 0) delete unsavedFiles[u]; });
-            pendingFolders = pendingFolders.filter(function (p) { return p !== folderPath && p.indexOf(folderPath + '/') !== 0; });
-            state.features = features;
-            toast('Deleted folder ' + label, 'success');
-            if (wasActiveInside) {
-                var next = features[0];
-                if (next) loadStudioFeature(next.uri); else blankStudioFeature();
-            }
-            updateFileTree();
-            load();
-        })
-        .catch(function (e) { toast(e.message, 'error'); });
+    confirmStudioAction({
+        title: 'Delete folder?',
+        message: 'Delete folder "' + label + '" and everything inside it? This permanently removes it from disk and cannot be undone.',
+        confirmLabel: 'Delete folder'
+    }).then(function (ok) {
+        if (!ok) return;
+        var prefix = 'features/' + folderPath + '/';
+        var wasActiveInside = !!(studioFeature && (studioFeature.uri === 'features/' + folderPath || String(studioFeature.uri || '').indexOf(prefix) === 0));
+        FB.fetch('/api/folder?path=' + encodeURIComponent('features/' + folderPath), { method: 'DELETE' })
+            .then(function (r) { return r.json().then(function (body) { if (!r.ok) throw new Error(body.message || 'Could not delete the folder.'); return body; }); })
+            .then(function () { return FB.fetch('/api/features?ts=' + Date.now()).then(function (r) { return r.json(); }); })
+            .then(function (features) {
+                Object.keys(unsavedFiles).forEach(function (u) { if (u.indexOf(prefix) === 0) delete unsavedFiles[u]; });
+                pendingFolders = pendingFolders.filter(function (p) { return p !== folderPath && p.indexOf(folderPath + '/') !== 0; });
+                state.features = features;
+                toast('Deleted folder ' + label, 'success');
+                if (wasActiveInside) {
+                    var next = features[0];
+                    if (next) loadStudioFeature(next.uri); else blankStudioFeature();
+                }
+                updateFileTree();
+                load();
+            })
+            .catch(function (e) { toast(e.message, 'error'); });
+    });
 }
 
 /* ---------------- step definitions ---------------- */
@@ -1219,7 +1231,7 @@ function updateStepDefPreview() {
 }
 
 function loadStepDefs() {
-    fetch('/api/step-definitions?ts=' + Date.now())
+    FB.fetch('/api/step-definitions?ts=' + Date.now())
         .then(function (r) {
             // A stale dashboard-server process (started before this API existed) 404s here
             // with a plain-text body, which would otherwise fail silently in the Explorer —
@@ -1309,7 +1321,7 @@ function saveStepDefinition() {
     messageEl.className = 'studio-message';
     var payload = { keyword: keyword, file: file, template: template, body: body };
     if (isEditing) { payload.originalSource = editingStep.source; payload.originalFlags = editingStep.flags; }
-    fetch('/api/step-definition', {
+    FB.fetch('/api/step-definition', {
         method: isEditing ? 'PUT' : 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     })
@@ -1419,7 +1431,7 @@ function loadStudioFeature(uri) {
     if (!uri) return;
     $('studio-message').textContent = 'Loading…';
     $('studio-message').className = 'studio-message';
-    fetch('/api/feature?file=' + encodeURIComponent(uri))
+    FB.fetch('/api/feature?file=' + encodeURIComponent(uri))
         .then(function (r) { return r.json(); })
         .then(function (f) {
             if (f && f.message) throw new Error(f.message);
@@ -1469,9 +1481,54 @@ function renderStudio() {
 
 var KEYWORDS = ['Given ', 'When ', 'Then ', 'And ', 'But '];
 
-function confirmStudioAction(message) {
-    if (typeof window === 'undefined' || !window.confirm) return true;
-    return window.confirm(message || 'Are you sure you want to remove this item?');
+function commitFeatureEdit(feature) {
+    studioFeature = {
+        uri: feature.uri, name: feature.name, description: feature.description,
+        tags: feature.tags, background: feature.background || null, elements: feature.scenarios
+    };
+    renderStudio();
+}
+
+function confirmStudioAction(options) {
+    if (typeof options === 'string') options = { message: options };
+    options = options || {};
+    var overlay = $('confirm-overlay');
+    if (!overlay) {
+        return Promise.resolve(typeof window !== 'undefined' && window.confirm ?
+            window.confirm(options.message || 'Are you sure you want to remove this item?') : true);
+    }
+    var titleEl = $('confirm-title');
+    var messageEl = $('confirm-message');
+    var okBtn = $('confirm-ok');
+    var cancelBtn = $('confirm-cancel');
+    titleEl.textContent = options.title || 'Are you sure?';
+    messageEl.textContent = options.message || 'This action cannot be undone.';
+    okBtn.textContent = options.confirmLabel || 'Delete';
+    cancelBtn.textContent = options.cancelLabel || 'Cancel';
+    overlay.classList.remove('hidden');
+
+    return new Promise(function (resolve) {
+        function cleanup(result) {
+            overlay.classList.add('hidden');
+            okBtn.removeEventListener('click', onOk);
+            cancelBtn.removeEventListener('click', onCancel);
+            overlay.removeEventListener('mousedown', onOverlayClick);
+            document.removeEventListener('keydown', onKeydown);
+            resolve(result);
+        }
+        function onOk() { cleanup(true); }
+        function onCancel() { cleanup(false); }
+        function onOverlayClick(e) { if (e.target === overlay) cleanup(false); }
+        function onKeydown(e) {
+            if (e.key === 'Escape') cleanup(false);
+            else if (e.key === 'Enter') cleanup(true);
+        }
+        okBtn.addEventListener('click', onOk);
+        cancelBtn.addEventListener('click', onCancel);
+        overlay.addEventListener('mousedown', onOverlayClick);
+        document.addEventListener('keydown', onKeydown);
+        cancelBtn.focus();
+    });
 }
 
 function safeText(value) {
@@ -1741,7 +1798,7 @@ function saveStudioFeature() {
     }
     $('studio-message').textContent = 'Saving…';
     $('studio-message').className = 'studio-message';
-    fetch('/api/feature', {
+    FB.fetch('/api/feature', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(feature)
@@ -1804,7 +1861,7 @@ function startRun(kind) {
     }
 
     // re-check the environment at click time — never trust a stale headlessOnly flag
-    fetch('/api/env?ts=' + Date.now())
+    FB.fetch('/api/env?ts=' + Date.now())
         .then(function (r) { return r.json(); })
         .catch(function () { return null; })
         .then(function (env) {
@@ -1814,7 +1871,7 @@ function startRun(kind) {
             if (mode === 'windowed' && headlessOnly) {
                 toast('Headed mode needs a desktop — this server has no display, so it will run headless.', 'error');
             }
-            return fetch('/api/run', {
+            return FB.fetch('/api/run', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ tag: tag, featureFile: file, headless: headless })
@@ -1836,7 +1893,7 @@ function startRun(kind) {
 
 function stopRun() {
     $('stop-run').disabled = true;
-    fetch('/api/stop', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
+    FB.fetch('/api/stop', { method: 'POST', headers: { 'Content-Type': 'application/json' } })
         .then(function (r) {
             return r.json().then(function (p) { if (!r.ok) throw new Error(p.message || 'Could not stop run'); return p; });
         })
@@ -1872,7 +1929,7 @@ function switchView(view) {
 
 /* ---------------- data loading ---------------- */
 function loadStepSuggestions() {
-    fetch('/api/step-suggestions?ts=' + Date.now())
+    FB.fetch('/api/step-suggestions?ts=' + Date.now())
         .then(function (r) { return r.json(); })
         .then(function (suggestions) {
             state.stepSuggestions = Array.isArray(suggestions) ? suggestions : [];
@@ -1887,11 +1944,11 @@ function loadStepSuggestions() {
 
 function load() {
     Promise.all([
-        fetch('/api/progress?ts=' + Date.now()).then(function (r) { return r.json(); }),
-        fetch('/api/report?ts=' + Date.now()).then(function (r) { return r.json(); }),
-        fetch('/api/features?ts=' + Date.now()).then(function (r) { return r.json(); }),
-        fetch('/api/run-status?ts=' + Date.now()).then(function (r) { return r.json(); }),
-        fetch('/api/env?ts=' + Date.now()).then(function (r) { return r.json(); })
+        FB.fetch('/api/progress?ts=' + Date.now()).then(function (r) { return r.json(); }),
+        FB.fetch('/api/report?ts=' + Date.now()).then(function (r) { return r.json(); }),
+        FB.fetch('/api/features?ts=' + Date.now()).then(function (r) { return r.json(); }),
+        FB.fetch('/api/run-status?ts=' + Date.now()).then(function (r) { return r.json(); }),
+        FB.fetch('/api/env?ts=' + Date.now()).then(function (r) { return r.json(); })
     ])
         .then(function (data) {
             state.progress = data[0];
@@ -2117,8 +2174,12 @@ document.addEventListener('click', function (event) {
 
         if (bgEditor && !scenario) {
             if (action.dataset.action === 'remove-background') {
-                if (!confirmStudioAction('Are you sure you want to remove this background?')) return;
-                feature.background = null;
+                confirmStudioAction({ title: 'Remove background?', message: 'Are you sure you want to remove this background?', confirmLabel: 'Remove' }).then(function (ok) {
+                    if (!ok) return;
+                    feature.background = null;
+                    commitFeatureEdit(feature);
+                });
+                return;
             } else if (action.dataset.action === 'add-bg-step') {
                 if (!feature.background) feature.background = { keyword: 'Background', name: '', steps: [] };
                 feature.background.steps.push(makeStep('Given ', 'a new step'));
@@ -2130,16 +2191,24 @@ document.addEventListener('click', function (event) {
             } else if (action.dataset.action === 'remove-step') {
                 var bgRow = action.closest('.step-row-editor');
                 if (feature.background && feature.background.steps) {
-                    if (!confirmStudioAction('Are you sure you want to remove this step?')) return;
-                    feature.background.steps.splice(Number(bgRow.dataset.step), 1);
-                    if (!feature.background.name && !feature.background.steps.length) feature.background = null;
+                    confirmStudioAction({ title: 'Remove step?', message: 'Are you sure you want to remove this step?', confirmLabel: 'Remove' }).then(function (ok) {
+                        if (!ok) return;
+                        feature.background.steps.splice(Number(bgRow.dataset.step), 1);
+                        if (!feature.background.name && !feature.background.steps.length) feature.background = null;
+                        commitFeatureEdit(feature);
+                    });
+                    return;
                 }
             }
         } else if (scenario) {
             var si = Number(scenario.dataset.scenario);
             if (action.dataset.action === 'remove-scenario') {
-                if (!confirmStudioAction('Are you sure you want to remove this scenario?')) return;
-                feature.scenarios.splice(si, 1);
+                confirmStudioAction({ title: 'Remove scenario?', message: 'Are you sure you want to remove this scenario?', confirmLabel: 'Remove' }).then(function (ok) {
+                    if (!ok) return;
+                    feature.scenarios.splice(si, 1);
+                    commitFeatureEdit(feature);
+                });
+                return;
             } else if (action.dataset.action === 'add-step') {
                 if (!feature.scenarios[si]) return;
                 feature.scenarios[si].steps.push(makeStep('Given ', 'a new step'));
@@ -2151,17 +2220,17 @@ document.addEventListener('click', function (event) {
             } else if (action.dataset.action === 'remove-step') {
                 var row = action.closest('.step-row-editor');
                 if (feature.scenarios[si] && feature.scenarios[si].steps) {
-                    if (!confirmStudioAction('Are you sure you want to remove this step?')) return;
-                    feature.scenarios[si].steps.splice(Number(row.dataset.step), 1);
+                    confirmStudioAction({ title: 'Remove step?', message: 'Are you sure you want to remove this step?', confirmLabel: 'Remove' }).then(function (ok) {
+                        if (!ok) return;
+                        feature.scenarios[si].steps.splice(Number(row.dataset.step), 1);
+                        commitFeatureEdit(feature);
+                    });
+                    return;
                 }
             }
         }
 
-        studioFeature = {
-            uri: feature.uri, name: feature.name, description: feature.description,
-            tags: feature.tags, background: feature.background || null, elements: feature.scenarios
-        };
-        renderStudio();
+        commitFeatureEdit(feature);
     }
 });
 
@@ -2193,7 +2262,7 @@ function openInlineTagEditor(featureUri, scenarioName, anchorEl) {
         toast('Cannot edit tags — scenario context missing.', 'error');
         return;
     }
-    fetch('/api/feature?file=' + encodeURIComponent(featureUri))
+    FB.fetch('/api/feature?file=' + encodeURIComponent(featureUri))
         .then(function (r) { return r.json(); })
         .then(function (f) {
             if (f && f.message) throw new Error(f.message);
@@ -2228,7 +2297,7 @@ function saveInlineTagEditor(saveBtn) {
     var tagEditor = panel.querySelector('.tag-editor');
     var newTags = tagsFromEditor(tagEditor);
     saveBtn.disabled = true;
-    fetch('/api/feature?file=' + encodeURIComponent(featureUri))
+    FB.fetch('/api/feature?file=' + encodeURIComponent(featureUri))
         .then(function (r) { return r.json(); })
         .then(function (f) {
             if (f && f.message) throw new Error(f.message);
@@ -2238,7 +2307,7 @@ function saveInlineTagEditor(saveBtn) {
                 return e;
             });
             if (!found) throw new Error('Scenario no longer exists in feature file.');
-            return fetch('/api/feature', {
+            return FB.fetch('/api/feature', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -2485,7 +2554,7 @@ function requestStepForRecording(index, button) {
     var sessionId = recording.sessionId;
     button.disabled = true;
     button.textContent = 'Creating…';
-    fetch('/api/record/request-step', {
+    FB.fetch('/api/record/request-step', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionId: sessionId, eventIndex: index })
@@ -2509,7 +2578,7 @@ function requestStepForRecording(index, button) {
 function pollRecording() {
     if (!recording) return;
     var sessionId = recording.sessionId;
-    fetch('/api/record/events?sessionId=' + encodeURIComponent(sessionId) + '&since=' + recording.events.length)
+    FB.fetch('/api/record/events?sessionId=' + encodeURIComponent(sessionId) + '&since=' + recording.events.length)
         .then(function (r) { return r.json(); })
         .then(function (data) {
             if (!recording || recording.sessionId !== sessionId) return;
@@ -2541,7 +2610,7 @@ function startRecording() {
     }
     $('record-error').textContent = '';
     $('record-start').disabled = true;
-    fetch('/api/record/start', {
+    FB.fetch('/api/record/start', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ url: url })
@@ -2586,7 +2655,7 @@ function discardRecording() {
     recording = null;
     closeRecordDialog();
     if (sessionId) {
-        fetch('/api/record/stop', {
+        FB.fetch('/api/record/stop', {
             method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sessionId: sessionId })
         }).catch(function () {});
     }
@@ -2597,7 +2666,7 @@ function finishRecording() {
     var sessionId = recording.sessionId;
     var capturedEvents = recording.events;
     stopRecordingTimer();
-    fetch('/api/record/stop', {
+    FB.fetch('/api/record/stop', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sessionId: sessionId })
     })
         .then(function (r) { return r.json(); })
@@ -2625,7 +2694,11 @@ $('record-steps-list').addEventListener('click', function (event) {
 });
 
 /* ---------------- boot ---------------- */
-load();
-loadStepSuggestions();
 syncStickyOffsets();
-setInterval(load, POLL_MS);
+// Everything else reads/writes through Firebase (see firebase-client.js) — wait for a
+// signed-in user before touching any of it, since FB.fetch() calls assume auth != null.
+FB.ready.then(function () {
+    load();
+    loadStepSuggestions();
+    setInterval(load, POLL_MS);
+});

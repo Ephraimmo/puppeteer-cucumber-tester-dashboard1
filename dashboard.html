@@ -36,8 +36,23 @@
     <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M8 6V4.5A1.5 1.5 0 0 1 9.5 3h5A1.5 1.5 0 0 1 16 4.5V6"/><path d="M19 6v13.5A1.5 1.5 0 0 1 17.5 21h-11A1.5 1.5 0 0 1 5 19.5V6"/><path d="M10 11v6"/><path d="M14 11v6"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></symbol>
     <symbol id="i-code" viewBox="0 0 24 24"><path d="m9 8-4.5 4L9 16"/><path d="m15 8 4.5 4L15 16"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></symbol>
   </defs>
 </svg>
+
+<!-- ===================== SIGN IN ===================== -->
+<div class="auth-overlay" id="auth-overlay">
+  <form class="auth-card" id="auth-form">
+    <span class="auth-lock"><svg class="icon"><use href="#i-lock"/></svg></span>
+    <h2>Sign in to TestOps</h2>
+    <p class="auth-sub">This console controls the Puppeteer/Cucumber agent on your machine — sign in to continue.</p>
+    <label>Email<input type="email" id="auth-email" autocomplete="username" required></label>
+    <label>Password<input type="password" id="auth-password" autocomplete="current-password" required></label>
+    <p class="auth-error hidden" id="auth-error"></p>
+    <button class="btn btn-primary auth-submit" id="auth-submit" type="submit"><svg class="icon"><use href="#i-lock"/></svg> Sign in</button>
+  </form>
+</div>
 
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
@@ -68,6 +83,8 @@
     <div class="header-meta">
       <span class="conn"><i class="pulse-dot"></i><span id="connection-status">Live polling</span></span>
       <span class="updated" id="last-updated">Updated —</span>
+      <span class="auth-user hidden" id="auth-user-email"></span>
+      <button class="btn-icon" id="sign-out-btn" title="Sign out"><svg class="icon"><use href="#i-logout"/></svg></button>
     </div>
   </div>
 
@@ -464,10 +481,26 @@
     </div>
   </div>
 
+  <div class="confirm-overlay hidden" id="confirm-overlay">
+    <div class="confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+      <div class="confirm-icon" id="confirm-icon"><svg class="icon"><use href="#i-trash"/></svg></div>
+      <h3 id="confirm-title">Are you sure?</h3>
+      <p id="confirm-message">This action cannot be undone.</p>
+      <div class="confirm-actions">
+        <button class="btn btn-ghost" id="confirm-cancel">Cancel</button>
+        <button class="btn btn-stop" id="confirm-ok">Delete</button>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <div class="toast-host" id="toast-host" aria-live="polite"></div>
 
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+<script src="/firebase-client.js"></script>
 <script src="/dashboard.js"></script>
 </body>
 </html>

@@ -1454,7 +1454,8 @@ http.createServer(function (request, response) {
         '/': ['dashboard.html', 'text/html; charset=utf-8'],
         '/dashboard.html': ['dashboard.html', 'text/html; charset=utf-8'],
         '/dashboard.css': ['dashboard.css', 'text/css; charset=utf-8'],
-        '/dashboard.js': ['dashboard.js', 'application/javascript; charset=utf-8']
+        '/dashboard.js': ['dashboard.js', 'application/javascript; charset=utf-8'],
+        '/firebase-client.js': ['firebase-client.js', 'application/javascript; charset=utf-8']
     };
 
     if (files[requestPath]) {

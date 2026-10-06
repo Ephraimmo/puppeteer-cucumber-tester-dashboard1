@@ -1213,6 +1213,34 @@ mark.search-hit { background: #fde68a; color: #713f12; border-radius: 3px; paddi
 .record-error { min-height: 16px; font: 500 11px var(--mono); color: var(--fail-strong); margin: 0; }
 .record-actions { display: flex; justify-content: flex-end; gap: 10px; }
 
+/* ---------- sign in (Firebase auth gate) ---------- */
+.auth-overlay {
+  position: fixed; inset: 0; background: rgba(11, 18, 32, .78); backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center; z-index: 1300; padding: 20px;
+}
+.auth-overlay.hidden { display: none; }
+.auth-card {
+  width: 100%; max-width: 360px; background: var(--surface); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg); padding: 28px 26px; display: grid; gap: 14px; text-align: center;
+}
+.auth-lock {
+  justify-self: center; width: 44px; height: 44px; border-radius: 50%; background: var(--accent-soft);
+  color: var(--accent-strong); display: inline-flex; align-items: center; justify-content: center;
+}
+.auth-lock .icon { width: 22px; height: 22px; }
+.auth-card h2 { font-size: 18px; font-weight: 750; }
+.auth-sub { font-size: 12px; color: var(--ink-3); line-height: 1.5; margin-top: -6px; }
+.auth-card label { display: grid; gap: 6px; font: 600 10px var(--mono); letter-spacing: 1px; text-transform: uppercase; color: var(--ink-3); text-align: left; }
+.auth-card input {
+  font: 500 13px var(--font); color: var(--ink); padding: 10px 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--surface-2); text-transform: none; letter-spacing: normal; width: 100%; box-sizing: border-box;
+}
+.auth-card input:focus { outline: none; border-color: var(--accent); background: #fff; box-shadow: 0 0 0 3px var(--accent-soft); }
+.auth-error { min-height: 16px; font: 500 11px var(--mono); color: var(--fail-strong); margin: 0; }
+.auth-submit { justify-content: center; }
+.auth-submit[disabled] { opacity: .6; cursor: not-allowed; }
+.auth-user { font: 500 11px var(--mono); color: var(--ink-3); }
+
 .record-live-status { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--ink-2); font-weight: 600; }
 .record-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--fail); animation: record-pulse 1.2s ease-in-out infinite; flex: 0 0 auto; }
 @keyframes record-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
@@ -1233,6 +1261,28 @@ mark.search-hit { background: #fde68a; color: #713f12; border-radius: 3px; paddi
 }
 .record-step-suggestion { margin: 6px 0 8px; color: var(--ink-2); font-size: 12px; line-height: 1.5; }
 .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+/* ---------- confirm dialog ---------- */
+.confirm-overlay {
+  position: fixed; inset: 0; background: rgba(11, 18, 32, .45); backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center; z-index: 1200; padding: 20px;
+  animation: fade .15s ease;
+}
+.confirm-dialog {
+  width: 100%; max-width: 380px; background: var(--surface); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg); padding: 24px; text-align: center; display: grid; gap: 6px;
+  animation: confirm-pop .18s cubic-bezier(.2,.9,.3,1.2);
+}
+@keyframes confirm-pop { from { opacity: 0; transform: scale(.96) translateY(4px); } to { opacity: 1; transform: none; } }
+.confirm-icon {
+  width: 44px; height: 44px; border-radius: 999px; background: var(--fail-soft); color: var(--fail-strong);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 6px;
+}
+.confirm-icon .icon { width: 22px; height: 22px; }
+.confirm-dialog h3 { font-size: 15.5px; margin: 0; }
+.confirm-dialog p { font-size: 12.5px; color: var(--ink-2); line-height: 1.55; margin: 0 0 8px; word-break: break-word; }
+.confirm-actions { display: flex; justify-content: center; gap: 10px; }
+.confirm-actions .btn { flex: 1; justify-content: center; }
 
 /* ---------- toast ---------- */
 .toast-host { position: fixed; right: 20px; bottom: 20px; display: grid; gap: 10px; z-index: 1000; }

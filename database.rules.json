@@ -1,0 +1,57 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "agents": {
+      "$agentId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+
+    "commands": {
+      "$agentId": {
+        ".read": "auth != null",
+        "$commandId": {
+          ".write": "auth != null"
+        }
+      }
+    },
+
+    "runs": {
+      "$agentId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+
+    "features": {
+      "$agentId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+
+    "stepDefinitions": {
+      "$agentId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+
+    "reports": {
+      "$agentId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    },
+
+    "recording": {
+      "$agentId": {
+        ".read": "auth != null",
+        ".write": "auth != null"
+      }
+    }
+  }
+}
