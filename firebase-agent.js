@@ -27,6 +27,19 @@ var LOCAL_BASE = 'http://localhost:' + LOCAL_PORT;
 var MIRROR_INTERVAL_MS = 1200;
 var RECORDING_POLL_MS = 400;
 var LIVE_POLL_MS = 250;
+var ERROR_LOG = path.join(__dirname, 'firebase-agent-errors.log');
+
+// This process runs unattended, often with nobody watching its console, so record why it
+// failed in a file. A rejected promise (e.g. one Firebase write failing) is logged and the
+// agent keeps going; a real crash is logged and then exits as before.
+function logAgentError(kind, error) {
+    var detail = (error && error.stack) || String(error);
+    console.error('Firebase agent: ' + kind + ': ' + detail);
+    try { fs.appendFileSync(ERROR_LOG, new Date().toISOString() + ' ' + kind + ': ' + detail + '\n'); }
+    catch (writeError) { /* nowhere else to report it */ }
+}
+process.on('unhandledRejection', function (reason) { logAgentError('unhandled rejection', reason); });
+process.on('uncaughtException', function (error) { logAgentError('crash', error); process.exit(1); });
 
 // Starts the local HTTP server (file I/O, the cucumber runner, puppeteer recording) in
 // this same process — see the file header above for why nothing about it needs to change.

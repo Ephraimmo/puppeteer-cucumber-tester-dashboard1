@@ -912,6 +912,13 @@ function startRun(requestedTag, featureFile, headless, response) {
     var runner = childProcess.spawn(process.execPath, runnerArgs, { cwd: root, windowsHide: headless, stdio: ['ignore', 'pipe', 'pipe', 'ipc'], detached: process.platform !== 'win32' });
     runner.stdout.pipe(runnerLog, { end: false });
     runner.stderr.pipe(runnerLog, { end: false });
+    // e.g. a full disk (ENOSPC): fail this run's log rather than crash the whole server,
+    // and keep draining the runner's output so it doesn't stall on a full pipe
+    runnerLog.on('error', function (error) {
+        activeRun.message = 'Could not write ' + activeRun.logFile + ': ' + error.message;
+        runner.stdout.resume();
+        runner.stderr.resume();
+    });
     liveFrame = null;
     runner.on('message', function (message) {
         if (message && message.type === 'liveFrame') {
@@ -1052,6 +1059,13 @@ function finalizeProgress(exitCode) {
 // Legacy alias — kept for clarity at the call site.
 function finalizeAbnormalExit() {
     return finalizeProgress(1);
+}
+
+// Runs are child processes of this server, so none can be in progress at startup: a
+// "running" progress.json was left by a crash or a killed agent. Finish it off, or the
+// dashboard would show a run that never ends (and hide its Run buttons).
+if (readJson(path.join(reports, 'progress.json'), {}).status === 'running') {
+    finalizeAbnormalExit();
 }
 
 http.createServer(function (request, response) {
