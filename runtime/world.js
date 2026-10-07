@@ -130,7 +130,11 @@ module.exports = async function () {
                     '--no-sandbox',
                     '--disable-setuid-sandbox',
                     '--disable-dev-shm-usage',
-                    '--disable-gpu'
+                    '--disable-gpu',
+                    // keep painting when the window is covered or the screen is locked, so the
+                    // dashboard's live view keeps updating while nobody is at this machine
+                    // (keeps puppeteer's own default of disabling Translate)
+                    '--disable-features=Translate,CalculateNativeWinOcclusion'
                 ]
             };
 
