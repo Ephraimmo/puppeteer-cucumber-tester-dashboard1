@@ -13,7 +13,16 @@ var state = {
     counts: { passed: 0, failed: 0, running: 0, queued: 0 }
 };
 
+var listeners = [];
+
 function writeState() {
+    // tell listeners (the live view) first: they only need the in-memory state, and a
+    // failing disk write below must not keep them from seeing the current step
+    listeners.forEach(function (listener) {
+        try { listener(state); }
+        catch (error) { /* a listener must never break progress tracking */ }
+    });
+
     var tempPath = progressPath + '.tmp';
     var serializedState = JSON.stringify(state, null, 2);
 
@@ -120,6 +129,15 @@ function refreshCounts() {
 }
 
 module.exports = {
+    /**
+     * Calls listener(state) every time the progress changes (before it is written to disk).
+     * @param {function} listener - receives the live progress state; must not modify it
+     * @returns {void}
+     */
+    onChange: function (listener) {
+        listeners.push(listener);
+    },
+
     start: function () {
         state = {
             runId: new Date().toISOString(),

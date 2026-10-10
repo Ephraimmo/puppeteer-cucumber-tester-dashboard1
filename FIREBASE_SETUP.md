@@ -75,8 +75,33 @@ that project's README.
 - `dashboard-server.js` — the HTTP API that does the real work (file I/O, running
   cucumber, Puppeteer recording). The agent calls it exactly like the browser used to;
   it no longer serves the dashboard page itself.
+- `firebase-live.js` — the live browser view: sends the frames the test browser draws to
+  each dashboard that is watching, either over a direct WebRTC connection (Firebase only
+  carries the handshake) or, as a fallback, through the database. See below.
 - `launch-dashboard.js` (`npm start`, `start.bat`) — starts the agent and opens
   `DASHBOARD_URL`.
+
+## The live browser view
+
+The dashboard's "Live browser" panel shows the test browser as it runs. Frames come from
+Chrome's screencast (`runtime/live-view.js`, inside the test runner) and reach a dashboard
+two ways:
+
+- **Direct** (WebRTC data channel, needs the optional `node-datachannel` package that
+  `npm install` fetches): from this machine straight to the dashboard's browser, with
+  Firebase only used for the handshake under `agents/<id>/live/signals`. Typically a fraction
+  of a second behind, 15–20 frames a second, no database traffic. If the package can't be
+  installed or loaded, the agent says so at startup and everything uses the relay.
+  `LIVE_DIRECT=0` in the agent's environment turns direct connections off on purpose.
+- **Relay**: frames are written to `agents/<id>/live/frame` and every watching dashboard
+  reads them. About 8 frames a second, roughly half a second behind from a distant region.
+  Each frame counts toward Firebase download usage, which is why nothing is produced while
+  nobody is watching, and why a dashboard with a direct connection stops the relay.
+
+A dashboard starts on the relay and is moved to a direct connection once that is up; if it
+drops, the relay takes over again at once. A direct connection needs UDP to get through
+between the two machines (STUN is used to find a path; there is no TURN relay), so it can
+fail behind strict firewalls — the dashboard then simply stays on the relay.
 
 ## Current limits worth knowing about
 

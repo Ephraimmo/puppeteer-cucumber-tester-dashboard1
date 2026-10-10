@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var gherkin = require('gherkin');
 var childProcess = require('child_process');
+var EventEmitter = require('events');
 var puppeteer;
 try { puppeteer = require('puppeteer'); }
 catch (error) { puppeteer = null; }
@@ -14,7 +15,15 @@ var activeRun = { status: 'idle', tag: null, requestedTag: null, startedAt: null
 var stopRequested = false;
 var runnerProcess = null;
 var recordSessions = {};
-var liveFrame = null; // latest test-browser frame from runtime/live-view.js, served by /api/live
+
+// Live view of the test browser (see runtime/live-view.js). firebase-agent.js runs this server
+// in its own process, so instead of polling over HTTP it listens to `live` directly (see the
+// exports at the bottom) and tells the runner how much to stream with setLiveDemand().
+var live = new EventEmitter();
+var liveFrame = null;  // newest frame: { jpeg (Buffer), url, t (when Chrome drew it), at (when received), seq }
+var liveStep = { scenario: null, step: null };
+var liveDemand = { fps: 0 }; // what the runner is asked for; { fps: 0 } = nobody is watching
+var liveSeq = 0;
 
 function featureFiles(directory) {
     return fs.readdirSync(directory, { withFileTypes: true }).reduce(function (files, entry) {
@@ -26,7 +35,34 @@ function featureFiles(directory) {
     }, []);
 }
 
+// Reading and parsing a file is by far the slowest part of listing the features and step
+// definitions, and the dashboard asks for those lists every second or so. So each file's result
+// is kept until the file's size or modification time changes (an edit, from here or from an
+// editor, shows up at once); the directory listings are still read every time, so new, renamed
+// and deleted files do too. Callers must treat the returned objects as read-only.
+var parsedFiles = {};
+function parsedOnce(filePath, parse) {
+    var stamp;
+    try {
+        var stat = fs.statSync(filePath);
+        stamp = stat.mtimeMs + '/' + stat.size;
+    }
+    catch (error) {
+        delete parsedFiles[filePath];
+        return parse(filePath); // let the parser report the missing file the way it always did
+    }
+    var cached = parsedFiles[filePath];
+    if (!cached || cached.stamp !== stamp) {
+        cached = parsedFiles[filePath] = { stamp: stamp, value: parse(filePath) };
+    }
+    return cached.value;
+}
+
 function readFeature(filePath) {
+    return parsedOnce(filePath, parseFeature);
+}
+
+function parseFeature(filePath) {
     try {
         var document = new gherkin.Parser().parse(fs.readFileSync(filePath, 'utf8'));
         var feature = document.feature;
@@ -183,19 +219,25 @@ function scanStepDefinitionFiles() {
 }
 
 // Every step definition across every file, with its full body — used by the Step
-// Definitions explorer/editor. Re-scanned fresh every call (files are small) so edits made
-// outside the dashboard are picked up immediately, with no server restart.
+// Definitions explorer/editor. The file list is read fresh every call, and each file is
+// re-read whenever it has changed (see parsedOnce), so edits made outside the dashboard are
+// picked up immediately, with no server restart.
 function scanStepDefinitionBlocks() {
     var results = [];
     scanStepDefinitionFiles().forEach(function (file) {
-        var content;
-        try { content = fs.readFileSync(path.join(STEP_DEFINITIONS_DIR, file), 'utf8'); }
-        catch (error) { return; }
-        extractStepBlocksFromContent(content).forEach(function (block) {
-            results.push({
-                file: file, keyword: block.keyword, source: block.source, flags: block.flags,
-                pattern: humanizeStepPattern(block.source), params: block.params, body: block.body
+        var blocks = parsedOnce(path.join(STEP_DEFINITIONS_DIR, file), function (filePath) {
+            var content;
+            try { content = fs.readFileSync(filePath, 'utf8'); }
+            catch (error) { return []; }
+            return extractStepBlocksFromContent(content).map(function (block) {
+                return {
+                    keyword: block.keyword, source: block.source, flags: block.flags,
+                    pattern: humanizeStepPattern(block.source), params: block.params, body: block.body
+                };
             });
+        });
+        blocks.forEach(function (block) {
+            results.push(Object.assign({ file: file }, block));
         });
     });
     return results;
@@ -237,9 +279,8 @@ function discoverStepDefinitions() {
 }
 
 // Compiled patterns used to check whether a recorded interaction already has a
-// runnable step definition. Re-scanned fresh every call (files are small and this
-// mirrors discoverFeatures()'s no-cache approach) so a newly-written step is picked
-// up immediately, with no server restart.
+// runnable step definition. Picks up a newly-written step immediately (see parsedOnce),
+// with no server restart.
 function discoverStepPatterns() {
     return scanStepDefinitionSources().reduce(function (patterns, def) {
         try { patterns.push(new RegExp(def.source, def.flags)); }
@@ -853,6 +894,20 @@ process.on('exit', closeAllRecordSessions);
 process.on('SIGINT', function () { closeAllRecordSessions(); process.exit(); });
 process.on('SIGTERM', function () { closeAllRecordSessions(); process.exit(); });
 
+// Tells the runner how much live-view data to produce (see runtime/live-view.js). A run that
+// starts later gets the same demand as soon as it is spawned.
+function sendLiveDemand(target) {
+    target = target || runnerProcess;
+    if (!target || !target.connected) return;
+    try { target.send(Object.assign({ type: 'liveDemand' }, liveDemand), function () {}); }
+    catch (error) { /* the runner just exited */ }
+}
+
+function setLiveDemand(demand) {
+    liveDemand = demand;
+    sendLiveDemand();
+}
+
 function startRun(requestedTag, featureFile, headless, response) {
     if (activeRun.status === 'running') {
         response.writeHead(409, { 'Content-Type': 'application/json' });
@@ -908,8 +963,9 @@ function startRun(requestedTag, featureFile, headless, response) {
     // windowsHide only for headless runs — a headed run must be able to show the browser window
     var runnerLogPath = path.join(reports, 'runner-last-run.log');
     var runnerLog = fs.createWriteStream(runnerLogPath);
-    // the 'ipc' channel carries live-view frames of the test browser (see runtime/live-view.js)
-    var runner = childProcess.spawn(process.execPath, runnerArgs, { cwd: root, windowsHide: headless, stdio: ['ignore', 'pipe', 'pipe', 'ipc'], detached: process.platform !== 'win32' });
+    // the 'ipc' channel carries live-view frames of the test browser (see runtime/live-view.js);
+    // 'advanced' serialization lets it carry each frame's JPEG as raw bytes instead of base64 text
+    var runner = childProcess.spawn(process.execPath, runnerArgs, { cwd: root, windowsHide: headless, stdio: ['ignore', 'pipe', 'pipe', 'ipc'], serialization: 'advanced', detached: process.platform !== 'win32' });
     runner.stdout.pipe(runnerLog, { end: false });
     runner.stderr.pipe(runnerLog, { end: false });
     // e.g. a full disk (ENOSPC): fail this run's log rather than crash the whole server,
@@ -920,11 +976,20 @@ function startRun(requestedTag, featureFile, headless, response) {
         runner.stderr.resume();
     });
     liveFrame = null;
+    liveStep = { scenario: null, step: null };
     runner.on('message', function (message) {
-        if (message && message.type === 'liveFrame') {
-            liveFrame = { data: message.data, url: message.url, at: Date.now() };
+        if (!message) return;
+        if (message.type === 'liveFrame') {
+            liveSeq += 1;
+            liveFrame = { jpeg: message.jpeg, url: message.url, t: message.t, at: Date.now(), seq: liveSeq };
+            live.emit('frame', liveFrame);
+        }
+        else if (message.type === 'liveStep') {
+            liveStep = { scenario: message.scenario, step: message.step };
+            live.emit('step', liveStep);
         }
     });
+    sendLiveDemand(runner);
     activeRun.logFile = 'features/reports/runner-last-run.log';
     runnerProcess = runner;
     activeRun.pid = runner.pid;
@@ -932,6 +997,8 @@ function startRun(requestedTag, featureFile, headless, response) {
     runner.on('close', function (code) {
         runnerLog.end();
         liveFrame = null;
+        liveStep = { scenario: null, step: null };
+        live.emit('end');
         if (stopRequested) {
             stopRequested = false;
             runnerProcess = null;
@@ -1460,17 +1527,6 @@ http.createServer(function (request, response) {
         return;
     }
 
-    // Latest live-view frame of the test browser. Pass ?since=<at of the last frame you got>
-    // to receive only { active, at } when nothing has repainted since.
-    if (requestPath === '/api/live' && request.method === 'GET') {
-        var liveSince = Number(new URL(request.url, 'http://localhost').searchParams.get('since') || 0);
-        var liveBody = { active: !!runnerProcess, at: liveFrame ? liveFrame.at : 0 };
-        if (liveFrame && liveFrame.at > liveSince) Object.assign(liveBody, liveFrame);
-        response.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' });
-        response.end(JSON.stringify(liveBody));
-        return;
-    }
-
     // The dashboard UI lives in its own project (puppeteer-dashboard-web, hosted on
     // Vercel) and reaches this API through firebase-agent.js, so there's no page here.
     if (requestPath === '/') {
@@ -1484,3 +1540,13 @@ http.createServer(function (request, response) {
 }).listen(port, '0.0.0.0', function () {
     console.log('Scenario progress dashboard listening on port ' + port);
 });
+
+// What firebase-agent.js (which loads this file) needs to stream the live view.
+module.exports = {
+    live: {
+        events: live, // 'frame' (the frame), 'step' ({ scenario, step }) and 'end' (the run finished)
+        frame: function () { return liveFrame; },
+        step: function () { return liveStep; },
+        setDemand: setLiveDemand
+    }
+};
